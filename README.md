@@ -8,6 +8,7 @@ Esto implica calcular la posición angular de los paneles solares (azimut y elev
 **2.Objetivos de Optimización:** 
 
 Los objetivos de optimización del algoritmo para determinar la orientación óptima de los paneles solares son los siguientes:
+
 1.Maximizar la captación de luz solar: El principal objetivo es ajustar la orientación de los paneles solares de manera dinámica para maximizar la radiación solar incidente sobre ellos. Esto se logra calculando y ajustando los ángulos de azimut (dirección horizontal) y elevación (ángulo vertical) de los paneles.
 
 2.Precisión en el cálculo astronómico: Utilizar fórmulas astronómicas precisas para calcular la posición del sol en el cielo en función de la ubicación geográfica y el momento del día. Esto garantiza que las decisiones de orientación estén basadas en datos precisos y actualizados.
