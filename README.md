@@ -103,6 +103,89 @@ Variables:
 
 **Un pseudocódigo y diagramas de flujo del algoritmo original comparados con la implementación en C.**
 
+Inicio del Programa
+
+    Definir Constantes:
+        PI = 3.14159265
+        GpH = 15.0
+        LONGEST = -75.0
+        vtre = -23.44
+
+    Definir Estructura Coordenadas:
+        longitud: Real
+        latitud: Real
+
+    Función obtenerHoraLocal(fechaHora: estructura tm)
+        Obtener la fecha y hora del sistema y almacenarla en fechaHora usando la función localtime()
+
+    Función ingresarCoordenadas(coord: estructura Coordenadas)
+        Mostrar mensaje "Ingrese la longitud (en grados): "
+        Leer y almacenar la longitud en coord.longitud
+        Mostrar mensaje "Ingrese la latitud (en grados): "
+        Leer y almacenar la latitud en coord.latitud
+
+    Función calcularDeclinacion(fechaHora: estructura tm) -> Real
+        Calcular el día del año (tm_yday + 1)
+        Calcular la declinación solar utilizando la fórmula:
+            declinacion = vtre * cos(2 * PI * (diaDelAnio + 10) / 365.0)
+        Retornar declinacion
+
+    Función calcularEcuacionDelTiempo(fechaHora: estructura tm) -> Real
+        Calcular el día del año (tm_yday + 1)
+        Calcular B usando la fórmula:
+            B = (2 * PI * (diaDelAnio - 81)) / 365.0
+        Calcular la ecuación del tiempo utilizando la fórmula:
+            ecuacionTiempo = 9.87 * sin(2 * B) - 7.53 * cos(B) - 1.5 * sin(B)
+        Retornar ecuacionTiempo
+
+    Función calcularHoraLocal(fechaHora: estructura tm) -> Real
+        Calcular la hora local utilizando la fórmula:
+            horaLocal = tm_hour + tm_min / 60.0 + tm_sec / 3600.0
+        Retornar horaLocal
+
+    Función calcularTiempoSolarVerdadero(coord: estructura Coordenadas, horaLocal: Real, ecuacionTiempo: Real) -> Real
+        Calcular el tiempo solar verdadero utilizando la fórmula:
+            tiempoSolarVerdadero = horaLocal + (4 * (coord.longitud - LONGEST) + ecuacionTiempo) / 60.0
+        Retornar tiempoSolarVerdadero
+
+    Función calcularAlturaSolar(tiempoSolarVerdadero: Real) -> Real
+        Calcular la altura solar utilizando la fórmula:
+            alturaSolar = GpH * (tiempoSolarVerdadero - 12.0)
+        Retornar alturaSolar
+
+    Función calcularAnguloOrientacion(alturaSolar: Real, declinacion: Real, latitud: Real) -> Real
+        Calcular el ángulo de orientación utilizando la fórmula:
+            anguloRad = asin(sin(declinacion * PI / 180.0) * sin(latitud * PI / 180.0) +
+                            cos(declinacion * PI / 180.0) * cos(latitud * PI / 180.0) * cos(alturaSolar * PI / 180.0))
+            anguloOrientacion = anguloRad * 180.0 / PI
+        Retornar anguloOrientacion
+
+    Función calcularAzimuth(declinacion: Real, latitud: Real, alturaSolar: Real) -> Real
+        Calcular el azimuth utilizando la fórmula:
+            azimuthRad = acos((sin(declinacion * PI / 180.0) - sin(alturaSolar * PI / 180.0) * sin(latitud * PI / 180.0)) /
+                             (cos(alturaSolar * PI / 180.0) * cos(latitud * PI / 180.0)))
+            azimuth = azimuthRad * 180.0 / PI
+        Retornar azimuth
+
+    Procedimiento principal()
+        Definir coordenadas: estructura Coordenadas
+        Definir fechaHora: estructura tm
+        obtenerHoraLocal(fechaHora)
+        ingresarCoordenadas(coordenadas)
+
+        declinacion = calcularDeclinacion(fechaHora)
+        ecuacionTiempo = calcularEcuacionDelTiempo(fechaHora)
+        horaLocal = calcularHoraLocal(fechaHora)
+        tiempoSolarVerdadero = calcularTiempoSolarVerdadero(coordenadas, horaLocal, ecuacionTiempo)
+        alturaSolar = calcularAlturaSolar(tiempoSolarVerdadero)
+        anguloOrientacion = calcularAnguloOrientacion(alturaSolar, declinacion, coordenadas.latitud)
+        azimuth = calcularAzimuth(declinacion, coordenadas.latitud, alturaSolar)
+
+        Mostrar "Orientación óptima de los paneles solares:"
+        Mostrar "Azimuth solar: " + azimuth + " grados"
+        Mostrar "Ángulo de elevación solar: " + anguloOrientacion + " grados"
+
+    Fin del Programa
 
 **Codigo**
 https://github.com/Tayron2024/Prueba/blob/bcebf81f5c154aabe3eb27fdbf9cc63bc7908079/PruebaExamen.c
