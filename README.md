@@ -28,7 +28,7 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 -	Mostrar estos valores para que los instaladores puedan ajustar físicamente la posición de los paneles solares.
 
    
-###**Análisis Detallado de las Variables Involucradas**
+### **Análisis Detallado de las Variables Involucradas**
 
 **Objetivos de Optimización**
 
