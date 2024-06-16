@@ -1,4 +1,4 @@
-**#Universidad Nacional de Loja**
+#Universidad Nacional de Loja
 
 
 **Algoritmo para Optimización de Orientación de Paneles Solares**
