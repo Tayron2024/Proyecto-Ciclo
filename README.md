@@ -1,18 +1,18 @@
 **Universidad Nacional de Loja**
 
 
-Título: **Algoritmo para Optimización de Orientación de Paneles Solares**
+**Algoritmo para Optimización de Orientación de Paneles Solares**
 
 **Presentado por:** Tayron Morales, Mathias ......, Victor.
 
 **Fecha:** 16/06/2024
 
 **Resumen de la Problematica**
+
 En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
 
 
 **Descripción del Problema y Objetivo del Algoritmo**
-
 
 El problema abordado es determinar la orientación óptima de paneles solares en tiempo real para maximizar la captación de luz solar. Esto implica calcular dinámicamente los ángulos de azimuth y elevación del sol en función de la ubicación geográfica y la hora del día, asegurando así que los paneles solares estén orientados de manera que capturen la máxima radiación solar posible en todo momento.
 
