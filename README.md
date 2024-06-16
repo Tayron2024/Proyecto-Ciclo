@@ -1,5 +1,5 @@
 **Codigo**
-
+https://github.com/Tayron2024/Prueba/blob/bcebf81f5c154aabe3eb27fdbf9cc63bc7908079/PruebaExamen.c
 
 **Descripción del Problema y Objetivo del Algoritmo**
 
