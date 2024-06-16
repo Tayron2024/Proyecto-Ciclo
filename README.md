@@ -265,6 +265,7 @@ Haz clic en "Variables de entorno".
 En la sección "Variables del sistema", selecciona la variable PATH y haz clic en "Editar...".
 Añade la ruta donde MinGW está instalado (por ejemplo, C:\MinGW\bin) al final de la lista separada por un punto y coma si no está ya presente.
 Haz clic en "Aceptar" para cerrar todas las ventanas de configuración.
+
 3. Clonar el Repositorio desde GitHub
 Abre Visual Studio Code y sigue estos pasos:
 
@@ -277,8 +278,6 @@ En la terminal, navega hasta el directorio donde deseas clonar el repositorio us
 Clona el repositorio utilizando el comando git clone URL_del_repositorio donde URL_del_repositorio es la URL del repositorio en GitHub.
 Por ejemplo:
 
-bash
-Copiar código
 git clone https://github.com/tu_usuario/tu_repositorio.git
 Esto creará una copia del repositorio en tu máquina local.
 Abrir el Proyecto en Visual Studio Code:
@@ -345,6 +344,8 @@ Después de ingresar las coordenadas, el programa calculará y mostrará la orie
 Orientación óptima de los paneles solares:
 Azimuth solar: 179.63 grados
 Ángulo de elevación solar: 61.06 grados
+
+
 Ejemplo 2: Coordenadas de Ciudad de México
 Supongamos que las coordenadas geográficas para la Ciudad de México son:
 
@@ -354,6 +355,7 @@ Latitud: 19.4326 grados
 Ejecuta el programa desde la terminal integrada en Visual Studio Code:
 
 ./main.exe
+
 El programa solicitará ingresar la longitud (en grados):
 
 Ingrese la longitud (en grados): -99.1332
