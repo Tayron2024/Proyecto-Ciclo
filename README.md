@@ -1,5 +1,15 @@
-**Codigo**
-https://github.com/Tayron2024/Prueba/blob/bcebf81f5c154aabe3eb27fdbf9cc63bc7908079/PruebaExamen.c
+**Universidad Nacional de Loja**
+
+
+Título: **Algoritmo para Optimización de Orientación de Paneles Solares**
+
+**Presentado por:** Tayron Morales, Mathias ......, Victor.
+
+**Fecha:** 16/06/2024
+
+**Resumen de la Problematica**
+En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
+
 
 **Descripción del Problema y Objetivo del Algoritmo**
 
@@ -92,6 +102,10 @@ Variables:
 
 
 **Un pseudocódigo y diagramas de flujo del algoritmo original comparados con la implementación en C.**
+
+
+**Codigo**
+https://github.com/Tayron2024/Prueba/blob/bcebf81f5c154aabe3eb27fdbf9cc63bc7908079/PruebaExamen.c
 
 
 **Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
