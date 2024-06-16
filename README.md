@@ -1,3 +1,6 @@
+**Codigo**
+
+
 **Descripción del Problema y Objetivo del Algoritmo**
 
 
@@ -85,6 +88,10 @@ Variables:
 -obtenerHoraLocal(struct tm *fechaHora): Obtiene la fecha y hora del sistema actual.
 -ingresarCoordenadas(struct Coordenadas *coord): Permite al usuario ingresar las coordenadas geográficas.
 -Funciones para calcular la declinación solar, la ecuación del tiempo, la hora local, el tiempo solar verdadero, la altura solar, el ángulo de orientación solar y el azimuth solar.
+
+
+
+**Un pseudocódigo y diagramas de flujo del algoritmo original comparados con la implementación en C.**
 
 
 **Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
