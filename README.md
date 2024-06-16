@@ -7,17 +7,17 @@
 
 **Fecha:** 16/06/2024
 
-**Descripción del Proyecto**
+### **Descripción del Proyecto**
 
 En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
 
 
-**Descripción del Problema y Objetivo del Algoritmo**
+### **Descripción del Problema y Objetivo del Algoritmo**
 
 El problema abordado es determinar la orientación óptima de paneles solares en tiempo real para maximizar la captación de luz solar. Esto implica calcular dinámicamente los ángulos de azimuth y elevación del sol en función de la ubicación geográfica y la hora del día, asegurando así que los paneles solares estén orientados de manera que capturen la máxima radiación solar posible en todo momento.
 
 
-**El objetivo del algoritmo es proporcionar una herramienta computacional que permita:**
+### **El objetivo del algoritmo es proporcionar una herramienta computacional que permita:**
 
 -	Obtener automáticamente la fecha y hora del sistema.
   
@@ -28,7 +28,7 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 -	Mostrar estos valores para que los instaladores puedan ajustar físicamente la posición de los paneles solares.
 
    
-**Análisis Detallado de las Variables Involucradas**
+###**Análisis Detallado de las Variables Involucradas**
 
 **Objetivos de Optimización**
 
@@ -40,7 +40,7 @@ El objetivo principal del algoritmo es maximizar la eficiencia energética de lo
 •	Presentar estos ángulos de manera clara para que los instaladores puedan ajustar físicamente la orientación de los paneles solares.
 
 
-**Análisis de Variables**
+### **Análisis de Variables**
 
 **1.Fecha y Hora:**
 
@@ -91,7 +91,8 @@ Variables:
 •	Parámetros Solares: Calculados dinámicamente para ajustar la orientación de los paneles solares de manera óptima según la posición del Sol.
 
 
-**Explicación de las Estructuras de Datos y Funciones Utilizadas**
+### **Explicación de las Estructuras de Datos y Funciones Utilizadas**
+
 •	Estructura struct Coordenadas:
 -Almacena la longitud y latitud ingresadas manualmente por el usuario para calcular la orientación solar.
 •	Funciones Utilizadas:
@@ -101,7 +102,7 @@ Variables:
 
 
 
-**Un pseudocódigo y diagramas de flujo del algoritmo original comparados con la implementación en C.**
+### **Un pseudocódigo y diagramas de flujo del algoritmo original comparados con la implementación en C.**
 
 Inicio del Programa
 
@@ -187,11 +188,11 @@ Inicio del Programa
 
     Fin del Programa
 
-**Codigo**
+### **Codigo**
 https://github.com/Tayron2024/Prueba/blob/bcebf81f5c154aabe3eb27fdbf9cc63bc7908079/PruebaExamen.c
 
 
-**Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
+### **Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
 
 Implementación en un Sistema Real:
 
@@ -209,7 +210,7 @@ Implementación en un Sistema Real:
 
 •	Monitorización y Mantenimiento Remoto: Integrar funcionalidades de monitorización remota para supervisar el rendimiento de los paneles y realizar ajustes de orientación cuando sea necesario.
 
-**Requisitos**
+### **Requisitos**
 
 -Requisitos de Hardware**
 
@@ -241,7 +242,7 @@ Acceso a Internet:
 
 Para instalar o actualizar el compilador y las herramientas necesarias, así como para acceder a documentación adicional.
 
-**Instrucciones de Instalación**
+### **Instrucciones de Instalación**
 
 
 Pasos para la Instalación y Compilación en Visual Studio Code (Windows)
@@ -297,7 +298,7 @@ Ejecutar el Programa:
 
 Desde la terminal integrada en Visual Studio Code, puedes ejecutar el programa compilado escribiendo ./main.exe y presionando Enter.
 
-Uso
+### **Uso**
 Instrucciones sobre cómo ejecutar el programa y proporcionar entradas (coordenadas geográficas). Ejemplos de comandos y posibles resultados.
 
 Instrucciones para Ejecutar el Programa
@@ -370,7 +371,7 @@ Azimuth solar: 180.16 grados
 Ángulo de elevación solar: 83.61 grados
 
 
-Notas Importantes
+### **Notas Importantes**
 
 Asegúrate de ingresar las coordenadas geográficas correctamente en el formato solicitado por el programa (grados decimales), el minimo error el programa puede marcar resultados que no funcionen o al error mismo del codigo.
 
