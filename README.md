@@ -7,7 +7,7 @@
 
 **Fecha:** 16/06/2024
 
-**Resumen de la Problematica**
+**Descripción del Proyecto**
 
 En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
 
@@ -209,3 +209,167 @@ Implementación en un Sistema Real:
 
 •	Monitorización y Mantenimiento Remoto: Integrar funcionalidades de monitorización remota para supervisar el rendimiento de los paneles y realizar ajustes de orientación cuando sea necesario.
 
+**Requisitos**
+
+-Requisitos de Hardware**
+
+#Computadora o Dispositivo Compatible:
+
+Un ordenador o dispositivo móvil capaz de ejecutar programas en lenguaje C.
+Procesador y memoria suficiente para ejecutar el sistema operativo y compilador.
+Requisitos de Software
+Sistema Operativo:
+
+Cualquier sistema operativo compatible con compiladores de C, como Windows, macOS, Linux, etc.
+
+-Compilador de C:**
+
+#Un compilador de C compatible instalado en el sistema, como:
+
+Para Windows: MinGW, Microsoft Visual Studio (con soporte para C), Cygwin.
+Para macOS: Xcode con Clang, GCC a través de Homebrew.
+Para Linux: GCC (GNU Compiler Collection), Clang.
+
+**Librerías Estándar de C:**
+
+Las librerías estándar de C como stdio.h, math.h, y time.h deben estar disponibles y accesibles para el compilador.
+Detalles Adicionales
+Entorno de Desarrollo Integrado (IDE):
+
+Opcionalmente, un IDE como Visual Studio Code, Xcode, Eclipse o Code::Blocks puede facilitar el desarrollo y la depuración del código.
+Acceso a Internet:
+
+Para instalar o actualizar el compilador y las herramientas necesarias, así como para acceder a documentación adicional.
+
+**Instrucciones de Instalación**
+
+
+Pasos para la Instalación y Compilación en Visual Studio Code (Windows)
+1. Instalar Visual Studio Code
+Si aún no tienes Visual Studio Code instalado, puedes descargarlo e instalarlo desde su sitio oficial.
+
+2. Instalar MinGW (Minimalist GNU for Windows)
+MinGW es un entorno de desarrollo para Windows que proporciona una implementación de GCC (GNU Compiler Collection), necesario para compilar programas en C.
+
+Descarga el instalador de MinGW desde aquí.
+
+Durante la instalación de MinGW, asegúrate de seleccionar al menos las siguientes componentes:
+
+mingw32-base
+mingw32-gcc-g++
+msys-base
+Después de la instalación, añade la ruta de MinGW al PATH del sistema:
+
+Abre el menú de inicio y busca "Editar las variables de entorno del sistema".
+Haz clic en "Variables de entorno".
+En la sección "Variables del sistema", selecciona la variable PATH y haz clic en "Editar...".
+Añade la ruta donde MinGW está instalado (por ejemplo, C:\MinGW\bin) al final de la lista separada por un punto y coma si no está ya presente.
+Haz clic en "Aceptar" para cerrar todas las ventanas de configuración.
+3. Clonar el Repositorio desde GitHub
+Abre Visual Studio Code y sigue estos pasos:
+
+Abrir Terminal Integrada:
+
+Ve al menú View -> Terminal o usa el atajo `Ctrl + `` para abrir la terminal integrada en Visual Studio Code.
+Clonar el Repositorio:
+
+En la terminal, navega hasta el directorio donde deseas clonar el repositorio usando el comando cd ruta\hacia\el\directorio.
+Clona el repositorio utilizando el comando git clone URL_del_repositorio donde URL_del_repositorio es la URL del repositorio en GitHub.
+Por ejemplo:
+
+bash
+Copiar código
+git clone https://github.com/tu_usuario/tu_repositorio.git
+Esto creará una copia del repositorio en tu máquina local.
+Abrir el Proyecto en Visual Studio Code:
+
+Ve a File -> Open Folder... y selecciona la carpeta del repositorio clonado para abrirlo en Visual Studio Code.
+4. Compilar y Ejecutar el Código
+Configurar el Archivo de Configuración de Compilación:
+
+Crea un archivo llamado tasks.json dentro de la carpeta .vscode en tu proyecto. Puedes crearlo manualmente o utilizando la funcionalidad de Visual Studio Code para generar tareas de compilación.
+
+Compilar y Ejecutar:
+
+Abre el archivo main.c en Visual Studio Code.
+Pulsa Ctrl + Shift + B para compilar el código. Esto ejecutará el comando gcc especificado en tasks.json para compilar el archivo main.c.
+Si no hay errores de compilación, se generará un archivo ejecutable main.exe en la misma carpeta donde se encuentra main.c.
+Ejecutar el Programa:
+
+Desde la terminal integrada en Visual Studio Code, puedes ejecutar el programa compilado escribiendo ./main.exe y presionando Enter.
+
+Uso
+Instrucciones sobre cómo ejecutar el programa y proporcionar entradas (coordenadas geográficas). Ejemplos de comandos y posibles resultados.
+
+Instrucciones para Ejecutar el Programa
+Clonar el Repositorio y Preparar el Entorno:
+
+Sigue los pasos descritos anteriormente para clonar el repositorio en tu máquina y configurar el entorno de desarrollo en Visual Studio Code con MinGW.
+Abrir el Proyecto en Visual Studio Code:
+
+Abre Visual Studio Code y abre la carpeta del repositorio clonado.
+Configurar las Coordenadas Geográficas:
+
+El programa solicitará al usuario ingresar las coordenadas geográficas (longitud y latitud) mediante la entrada estándar. Asegúrate de tener estas coordenadas listas para ingresarlas cuando se solicite.
+Compilar el Código:
+
+Abre el archivo main.c en Visual Studio Code y asegúrate de que tasks.json esté configurado correctamente para compilar el código usando GCC.
+
+Presiona Ctrl + Shift + B para compilar el código. Esto generará un archivo ejecutable main.exe en la misma carpeta donde se encuentra main.c.
+
+Ejecutar el Programa:
+
+Desde la terminal integrada en Visual Studio Code (o desde una terminal externa si lo prefieres), ejecuta el programa compilado escribiendo ./main.exe y presionando Enter.
+Ingresar las Coordenadas Geográficas:
+
+El programa solicitará ingresar la longitud y la latitud en grados. Sigue las instrucciones que aparecen en la consola y proporciona las coordenadas geográficas adecuadas cuando se te solicite.
+Ejemplos de Comandos y Posibles Resultados
+
+
+Ejemplo 1: Coordenadas de Nueva York
+Supongamos que las coordenadas geográficas para Nueva York son:
+
+Longitud: -74.0060 grados
+Latitud: 40.7128 grados
+Ejecuta el programa desde la terminal integrada en Visual Studio Code:
+
+./main.exe
+El programa solicitará ingresar la longitud (en grados):
+
+Ingrese la longitud (en grados): -74.0060
+Luego, solicitará ingresar la latitud (en grados):
+
+Ingrese la latitud (en grados): 40.7128
+Después de ingresar las coordenadas, el programa calculará y mostrará la orientación óptima de los paneles solares:
+
+Orientación óptima de los paneles solares:
+Azimuth solar: 179.63 grados
+Ángulo de elevación solar: 61.06 grados
+Ejemplo 2: Coordenadas de Ciudad de México
+Supongamos que las coordenadas geográficas para la Ciudad de México son:
+
+Longitud: -99.1332 grados
+Latitud: 19.4326 grados
+
+Ejecuta el programa desde la terminal integrada en Visual Studio Code:
+
+./main.exe
+El programa solicitará ingresar la longitud (en grados):
+
+Ingrese la longitud (en grados): -99.1332
+Luego, solicitará ingresar la latitud (en grados):
+
+
+Copiar códigoIngrese la latitud (en grados): 19.4326
+Después de ingresar las coordenadas, el programa calculará y mostrará la orientación óptima de los paneles solares:
+
+Orientación óptima de los paneles solares:
+Azimuth solar: 180.16 grados
+Ángulo de elevación solar: 83.61 grados
+
+
+Notas Importantes
+
+Asegúrate de ingresar las coordenadas geográficas correctamente en el formato solicitado por el programa (grados decimales), el minimo error el programa puede marcar resultados que no funcionen o al error mismo del codigo.
+
+Los resultados pueden variar dependiendo de la ubicación geográfica y la hora del día en que se ejecuta el programa debido a la naturaleza dinámica de la posición del sol.
