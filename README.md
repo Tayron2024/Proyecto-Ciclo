@@ -19,13 +19,13 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 
 **El objetivo del algoritmo es proporcionar una herramienta computacional que permita:**
 
-1.	Obtener automáticamente la fecha y hora del sistema.
+-	Obtener automáticamente la fecha y hora del sistema.
   
-2.	Permitir al usuario ingresar manualmente las coordenadas geográficas donde se instalarán los paneles solares.
+-	Permitir al usuario ingresar manualmente las coordenadas geográficas donde se instalarán los paneles solares.
    
-3.	Calcular la orientación óptima de los paneles solares en términos de azimuth y ángulo de elevación.
+-	Calcular la orientación óptima de los paneles solares en términos de azimuth y ángulo de elevación.
    
-4.	Mostrar estos valores para que los instaladores puedan ajustar físicamente la posición de los paneles solares.
+-	Mostrar estos valores para que los instaladores puedan ajustar físicamente la posición de los paneles solares.
 
    
 **Análisis Detallado de las Variables Involucradas**
