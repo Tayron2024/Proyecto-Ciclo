@@ -1,7 +1,7 @@
 # **Universidad Nacional de Loja**
 
 
-**Algoritmo para Optimización de Orientación de Paneles Solares**
+## **Algoritmo para Optimización de Orientación de Paneles Solares**
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
