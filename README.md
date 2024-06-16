@@ -3,7 +3,7 @@
 
 **Algoritmo para Optimización de Orientación de Paneles Solares**
 
-**Presentado por:** Tayron Morales, Mathias ......, Victor.
+**Presentado por:** Tayron Morales, Matias Medina......,........
 
 **Fecha:** 16/06/2024
 
