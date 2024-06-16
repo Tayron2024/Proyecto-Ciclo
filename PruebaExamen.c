@@ -1,107 +1,89 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
-#include <stdlib.h> // Para utilizar system()
 
-#define LONGEST -75
-#define PI 3.1416
+#define PI 3.14159265
+#define GpH 15.0
+#define LONGEST -75.0
 #define vtre -23.44
-#define GpH 15
 
 struct Coordenadas {
-    double longitud, latitud;
+    double longitud;
+    double latitud;
 };
 
-struct Angulo {
-    double azimuth, aOrientacion;
-};
+void obtenerHoraLocal(struct tm *fechaHora) {
+    time_t t = time(NULL);
+    *fechaHora = *localtime(&t);
+}
 
-void ingresarCoordenadas(struct Coordenadas *coordenadas);
-double Ds(struct tm *FechaAc);
-double DeclinacionSolar(struct tm *FechaAc);
-double EcuacionDelTiempo(double B);
-double HoraLocal(struct tm *FechaAc);
-double TiempoSolarVerdadero(struct Coordenadas coordenadas, double HoraLocal, double Eot);
-double AlturaSolar(double TSV);
-double OrientacionSolar(struct Angulo *angulo, struct Coordenadas coordenadas, double ds,  double H);
-double Azimuth(struct Angulo *angulo, struct Coordenadas coordenadas, double ds);
-void PresentarAngulos(struct Angulo angulo);
+void ingresarCoordenadas(struct Coordenadas *coord) {
+    printf("Ingrese la longitud (en grados): ");
+    scanf("%lf", &coord->longitud);
+    printf("Ingrese la latitud (en grados): ");
+    scanf("%lf", &coord->latitud);
+}
+
+double calcularDeclinacion(struct tm fechaHora) {
+    int diaDelAnio = fechaHora.tm_yday + 1;
+    return vtre * cos(2 * PI * (diaDelAnio + 10) / 365.0);
+}
+
+double calcularEcuacionDelTiempo(struct tm fechaHora) {
+    int diaDelAnio = fechaHora.tm_yday + 1;
+    double B = (2 * PI * (diaDelAnio - 81)) / 365.0;
+    return 9.87 * sin(2 * B) - 7.53 * cos(B) - 1.5 * sin(B);
+}
+
+double calcularHoraLocal(struct tm fechaHora) {
+    return fechaHora.tm_hour + fechaHora.tm_min / 60.0 + fechaHora.tm_sec / 3600.0;
+}
+
+double calcularTiempoSolarVerdadero(struct Coordenadas coord, double horaLocal, double ecuacionTiempo) {
+    return horaLocal + (4 * (coord.longitud - LONGEST) + ecuacionTiempo) / 60.0;
+}
+
+double calcularAlturaSolar(double tiempoSolarVerdadero) {
+    return GpH * (tiempoSolarVerdadero - 12.0);
+}
+
+double calcularAnguloOrientacion(double alturaSolar, double declinacion, double latitud) {
+    double anguloRad = asin(sin(declinacion * PI / 180.0) * sin(latitud * PI / 180.0) +
+                            cos(declinacion * PI / 180.0) * cos(latitud * PI / 180.0) * cos(alturaSolar * PI / 180.0));
+    return anguloRad * 180.0 / PI;
+}
+
+double calcularAzimuth(double declinacion, double latitud, double alturaSolar) {
+    double azimuthRad = acos((sin(declinacion * PI / 180.0) - sin(alturaSolar * PI / 180.0) * sin(latitud * PI / 180.0)) /
+                             (cos(alturaSolar * PI / 180.0) * cos(latitud * PI / 180.0)));
+    return azimuthRad * 180.0 / PI;
+}
 
 int main() {
-    printf("\033[H\033[J"); // Limpiar pantalla en Unix/Linux utilizando escape sequences
     struct Coordenadas coordenadas;
-    struct Angulo angulo;
-    struct tm *FechaActual;
-    time_t seconds;
+    struct tm fechaHora;
 
-    seconds = time(NULL);
-    FechaActual = localtime(&seconds);
+    obtenerHoraLocal(&fechaHora);
 
     ingresarCoordenadas(&coordenadas);
 
-    double ds = Ds(FechaActual);
-    double B = DeclinacionSolar(FechaActual);
-    double EoT = EcuacionDelTiempo(B);
-    double horaLocal = HoraLocal(FechaActual);
-    double TSV = TiempoSolarVerdadero(coordenadas, horaLocal, EoT);
-    double H = AlturaSolar(TSV); 
+    double declinacion = calcularDeclinacion(fechaHora);
 
-    angulo.aOrientacion = OrientacionSolar(&angulo, coordenadas, ds, H);
-    angulo.azimuth = Azimuth(&angulo, coordenadas, ds);
+    double ecuacionTiempo = calcularEcuacionDelTiempo(fechaHora);
 
-    PresentarAngulos(angulo);
+    double horaLocal = calcularHoraLocal(fechaHora);
+
+    double tiempoSolarVerdadero = calcularTiempoSolarVerdadero(coordenadas, horaLocal, ecuacionTiempo);
+
+    double alturaSolar = calcularAlturaSolar(tiempoSolarVerdadero);
+
+    double anguloOrientacion = calcularAnguloOrientacion(alturaSolar, declinacion, coordenadas.latitud);
+
+    double azimuth = calcularAzimuth(declinacion, coordenadas.latitud, alturaSolar);
+
+    printf("\nOrientación óptima de los paneles solares:\n");
+    printf("Azimuth solar: %.2f grados\n", azimuth);
+    printf("Ángulo de elevación solar: %.2f grados\n", anguloOrientacion);
 
     return 0;
-}
-
-void ingresarCoordenadas(struct Coordenadas *coordenadas) {
-    printf("Ingrese la longitud: ");
-    scanf("%lf", &coordenadas->longitud);
-    printf("Ingrese la latitud: ");
-    scanf("%lf", &coordenadas->latitud);
-}
-
-double Ds(struct tm *FechaAc) {
-    double ds = vtre * (cos((2 * PI / 365) * (FechaAc->tm_yday + 10)));
-    return ds;
-}
-
-double DeclinacionSolar(struct tm *FechaAc) {
-    double B = (2 * PI / 365) * (FechaAc->tm_yday - 81);
-    return B;
-}
-
-double EcuacionDelTiempo(double B) {
-    double Eot = (9.87 * sin(2 * B)) - (7.53 * cos(B)) - (1.5 * sin(B));
-    return Eot;
-}
-
-double HoraLocal(struct tm *FechaAc) {
-    double Horalocal = FechaAc->tm_hour + (FechaAc->tm_min / 60.0);
-    return Horalocal;
-}
-
-double TiempoSolarVerdadero(struct Coordenadas coordenadas, double HoraLocal, double Eot) {
-    double TSV = HoraLocal + ((4 * (coordenadas.longitud - LONGEST) + Eot) / 60.0);
-    return TSV;
-}
-
-double AlturaSolar(double TSV) {
-    double H = GpH * (TSV - 12);
-    return H;
-}
-
-double OrientacionSolar(struct Angulo *angulo, struct Coordenadas coordenadas, double ds, double H) {
-    angulo->aOrientacion = asin((sin(ds) * sin(coordenadas.latitud * PI / 180.0)) + (cos(ds) * cos(coordenadas.latitud * PI / 180.0) * cos(H)));
-    return angulo->aOrientacion;
-}
-
-double Azimuth(struct Angulo *angulo, struct Coordenadas coordenadas, double ds) {
-    angulo->azimuth = acos(((sin(ds) - sin(angulo->aOrientacion)) * sin(coordenadas.latitud * PI / 180.0)) / (cos(angulo->aOrientacion) * cos(coordenadas.latitud * PI / 180.0)));
-    return angulo->azimuth;
-}
-
-void PresentarAngulos(struct Angulo angulo) {
-    printf("El azimuth es: %lf\n", angulo.azimuth);
-    printf("El angulo de Orientacion es: %lf\n", angulo.aOrientacion);
 }
