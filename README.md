@@ -67,13 +67,15 @@ Variables:
 -	double latitud: Latitud geográfica del lugar en grados.
 -	Impacto: Determina la posición relativa del lugar respecto al Sol, afectando directamente los cálculos de azimuth y elevación solar.
 
-  
+  ![las-coordenadas-en-un-mapa-para-primaria](https://github.com/Tayron2024/Prueba/assets/169932075/3667fdac-1527-4faa-80d5-35dfd35ef9f7)
+
   **3.Parámetros Solares:**
 -Declinación Solar (declinacion): Determina la inclinación del eje de la Tierra con respecto al plano orbital, afectando la altura máxima del Sol en el cielo. 
 -double declinacion: Declinación solar, que determina la inclinación del eje de la Tierra con respecto al plano orbital.
 -Ecuación del Tiempo (ecuacionTiempo): Corrige la diferencia entre la hora solar verdadera y la hora civil local.
 -double ecuacionTiempo: Corrección de la diferencia entre la hora solar verdadera y la hora civil local.
 
+![orientacion-inclinacion-panel](https://github.com/Tayron2024/Prueba/assets/169932075/97c834a5-5c72-4b70-9f4a-cab9297694c0)
 
 **Hora Local (horaLocal): Tiempo local ajustado por la longitud geográfica.**
 
