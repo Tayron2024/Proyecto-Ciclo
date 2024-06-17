@@ -59,6 +59,8 @@ El objetivo principal del algoritmo es maximizar la eficiencia energética de lo
 9.	int tm_isdst: Horario de verano (1 si está en horario de verano, 0 si no lo está, -1 si es desconocido).
 -Impacto: Permite calcular la posición del Sol en cualquier momento del año, crucial para determinar la orientación óptima de los paneles solares.
 
+![word-image-106](https://github.com/Tayron2024/Prueba/assets/169932075/359973ee-6d49-4aed-b7c6-bbec888f470c)
+
 **2.Coordenadas Geográficas:**
 
 struct Coordenadas: Almacena la longitud y latitud del lugar donde se instalan los paneles solares
