@@ -3,7 +3,7 @@
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
 
-![10_POST_comofuncionanlospanelessolares jpg resize 414 250 center center](https://github.com/Tayron2024/Prueba/assets/169932075/898ab9e9-f029-4a77-966a-6b053c32780a)
+![La_Transicion_Energetica_avanza_en_Colombia__En original](https://github.com/Tayron2024/Prueba/assets/169932075/2903adf4-26ce-4581-92b3-29dfc5fec765)
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
