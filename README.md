@@ -39,8 +39,11 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 El objetivo principal del algoritmo es maximizar la eficiencia energética de los paneles solares, ajustando continuamente su orientación para seguir la trayectoria del sol a lo largo del día y del año. Esto implica:
 
 •	Obtener automáticamente la fecha y hora del sistema para calcular la posición solar actual.
+
 •	Permitir al usuario ingresar manualmente las coordenadas geográficas para personalizar el cálculo según la ubicación del sistema de paneles solares.
+
 •	Calcular dinámicamente los ángulos de azimuth y elevación del sol.
+
 •	Presentar estos ángulos de manera clara para que los instaladores puedan ajustar físicamente la orientación de los paneles solares.
 
 
@@ -48,7 +51,7 @@ El objetivo principal del algoritmo es maximizar la eficiencia energética de lo
 
 **1.Fecha y Hora:**
 
--struct tm: Representa la fecha y hora del sistema, incluyendo detalles como hora, minutos, segundos, día del mes, mes, año, etc.
+-Struct tm: Representa la fecha y hora del sistema, incluyendo detalles como hora, minutos, segundos, día del mes, mes, año, etc.
 -Variables:
 1.	int tm_sec: Segundos.
 2.	int tm_min: Minutos.
@@ -59,17 +62,17 @@ El objetivo principal del algoritmo es maximizar la eficiencia energética de lo
 7.	int tm_wday: Día de la semana (domingo = 0).
 8.	int tm_yday: Día del año (0-365).
 9.	int tm_isdst: Horario de verano (1 si está en horario de verano, 0 si no lo está, -1 si es desconocido).
--Impacto: Permite calcular la posición del Sol en cualquier momento del año, crucial para determinar la orientación óptima de los paneles solares.
+- Impacto: Permite calcular la posición del Sol en cualquier momento del año, crucial para determinar la orientación óptima de los paneles solares.
 
 ![word-image-106](https://github.com/Tayron2024/Prueba/assets/169932075/359973ee-6d49-4aed-b7c6-bbec888f470c)
 
 **2.Coordenadas Geográficas:**
 
-struct Coordenadas: Almacena la longitud y latitud del lugar donde se instalan los paneles solares
+Struct Coordenadas: Almacena la longitud y latitud del lugar donde se instalan los paneles solares
 Variables:
 
--	double longitud: Longitud geográfica del lugar en grados.
--	double latitud: Latitud geográfica del lugar en grados.
+-	Double longitud: Longitud geográfica del lugar en grados.
+-	Double latitud: Latitud geográfica del lugar en grados.
 -	Impacto: Determina la posición relativa del lugar respecto al Sol, afectando directamente los cálculos de azimuth y elevación solar.
 
   ![las-coordenadas-en-un-mapa-para-primaria](https://github.com/Tayron2024/Prueba/assets/169932075/3667fdac-1527-4faa-80d5-35dfd35ef9f7)
@@ -77,21 +80,21 @@ Variables:
   **3.Parámetros Solares:**
   
 - Declinación Solar (declinacion): Determina la inclinación del eje de la Tierra con respecto al plano orbital, afectando la altura máxima del Sol en el cielo. 
-- double declinacion: Declinación solar, que determina la inclinación del eje de la Tierra con respecto al plano orbital.
+- Double declinacion: Declinación solar, que determina la inclinación del eje de la Tierra con respecto al plano orbital.
 - Ecuación del Tiempo (ecuacionTiempo): Corrige la diferencia entre la hora solar verdadera y la hora civil local.
-- double ecuacionTiempo: Corrección de la diferencia entre la hora solar verdadera y la hora civil local.
+- Double ecuacionTiempo: Corrección de la diferencia entre la hora solar verdadera y la hora civil local.
 
 ![orientacion-inclinacion-panel](https://github.com/Tayron2024/Prueba/assets/169932075/97c834a5-5c72-4b70-9f4a-cab9297694c0)
 
 **Hora Local (horaLocal): Tiempo local ajustado por la longitud geográfica.**
 
-- double horaLocal: Hora local ajustada por la longitud geográfica.
+- Double horaLocal: Hora local ajustada por la longitud geográfica.
 - Tiempo Solar Verdadero (tiempoSolarVerdadero): Momento del día en el cual el Sol está en su punto más alto en el cielo
-- double tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
+- Double tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
 - Altura Solar (alturaSolar): Ángulo de elevación del Sol sobre el horizonte.
-- double alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
+- Double alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
 - Azimuth (azimuth): Dirección del Sol medida desde el norte en sentido horario.
-- double azimuth: Dirección del Sol medida desde el norte en sentido horario.
+- Double azimuth: Dirección del Sol medida desde el norte en sentido horario.
 
 
 **Influencia de las Variables**
