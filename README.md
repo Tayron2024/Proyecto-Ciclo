@@ -2,7 +2,7 @@
 
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
-[imagen](https://images.app.goo.gl/PycBM58B7QGCCwSg9)
+[Logo](https://images.app.goo.gl/PycBM58B7QGCCwSg9)
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
