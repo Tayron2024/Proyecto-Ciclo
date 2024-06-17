@@ -3,7 +3,7 @@
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
 
-![inclinacion-panel-solar](https://github.com/Tayron2024/Prueba/assets/169932075/4be4bd73-71e2-41d6-ac2a-f1e3dd25a575)
+![10_POST_comofuncionanlospanelessolares jpg resize 414 250 center center](https://github.com/Tayron2024/Prueba/assets/169932075/898ab9e9-f029-4a77-966a-6b053c32780a)
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
