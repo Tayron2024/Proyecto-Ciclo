@@ -62,7 +62,7 @@ Variables:
   **3.Parámetros Solares:**
   
 - Declinación Solar (declinacion): Determina la inclinación del eje de la Tierra con respecto al plano orbital, afectando la altura máxima del Sol en el cielo. 
-- Double declinacion: Declinación solar, que determina la inclinación del eje de la Tierra con respecto al plano orbital.
+- Double declinacion
 - Ecuación del Tiempo (ecuacionTiempo): Corrige la diferencia entre la hora solar verdadera y la hora civil local.
 - Double ecuacionTiempo: Corrección de la diferencia entre la hora solar verdadera y la hora civil local.
 
@@ -72,7 +72,7 @@ Variables:
 
 - "Double" horaLocal: Hora local ajustada por la longitud geográfica.
 - Tiempo Solar Verdadero (tiempoSolarVerdadero): Momento del día en el cual el Sol está en su punto más alto en el cielo
-- "Double" tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
+- "Double" tiempoSolarVerdadero
 - Altura Solar (alturaSolar): Ángulo de elevación del Sol sobre el horizonte.
 - "Double" alturaSolar
 - Azimuth (azimuth): Dirección del Sol medida desde el norte en sentido horario.
@@ -81,9 +81,11 @@ Variables:
 
 **Influencia de las Variables**
 
-•	Fecha y Hora: Determinan la posición del Sol en el cielo, variando a lo largo del día y del año.
-•	Coordenadas Geográficas: Definen la ubicación específica del sistema de paneles solares, afectando directamente la trayectoria solar observada.
-•	Parámetros Solares: Calculados dinámicamente para ajustar la orientación de los paneles solares de manera óptima según la posición del Sol.
+•	Fecha y Hora: Determinan la posición del Sol en el cielo, variando a lo largo del día y del año
+
+•	Coordenadas Geográficas: Definen la ubicación específica del sistema de paneles solares, afectando directamente la trayectoria solar observada
+
+•	Parámetros Solares: Calculados dinámicamente para ajustar la orientación de los paneles solares de manera óptima según la posición del Sol
 
 
 ### **Explicación de las Estructuras de Datos y Funciones Utilizadas**
