@@ -219,11 +219,17 @@ https://github.com/Tayron2024/Prueba/blob/99ff764baa2cb27f678a62f825c885cea94677
 **Implementación en un Sistema Real:**
 
 •	Interfaz de Usuario: El código puede integrarse en una aplicación con una interfaz gráfica para facilitar la entrada de coordenadas y mostrar los ángulos de orientación de manera más visual.
+
 •	Sensores y Actuadores: En sistemas de paneles solares automatizados, el cálculo de orientación puede controlarse mediante sensores que detecten la posición del Sol y actuadores que ajusten automáticamente la inclinación y orientación de los paneles.
+
 •	Integración con Predicciones Meteorológicas: Podría integrarse con datos meteorológicos en tiempo real para anticipar cambios en la radiación solar y ajustar la orientación de los paneles en consecuencia.
+
 •	Optimización de Algoritmos: Implementar algoritmos más precisos y eficientes para el cálculo de la posición del Sol, considerando factores atmosféricos y variaciones climáticas.
+
 •	Simulaciones y Modelos Predictivos: Desarrollar modelos predictivos que consideren el cambio estacional y la variabilidad climática para optimizar aún más la orientación de los paneles solares.
+
 •	Soporte para Múltiples Paneles: Extender el código para manejar configuraciones con múltiples paneles solares, cada uno con su orientación óptima calculada dinámicamente.
+
 •	Monitorización y Mantenimiento Remoto: Integrar funcionalidades de monitorización remota para supervisar el rendimiento de los paneles y realizar ajustes de orientación cuando sea necesario.
 
 ### **Requisitos**
