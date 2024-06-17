@@ -2,7 +2,8 @@
 
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
-[Logo](https://ecoinventos.com/wp-content/uploads/2018/02/Panel-solar-fotovoltaico.jpg)
+
+![Panel-solar-fotovoltaico](https://github.com/Tayron2024/Prueba/assets/169932075/33fed619-0b8f-4f9c-b42a-c7a8f4d2576e)
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
