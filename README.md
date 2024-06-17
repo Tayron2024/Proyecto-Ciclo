@@ -28,18 +28,6 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 -	Calcular la orientación óptima de los paneles solares en términos de azimuth y ángulo de elevación.
 -	Mostrar estos valores para que los instaladores puedan ajustar físicamente la posición de los paneles solares.
 
-   
-### **Análisis Detallado de las Variables Involucradas**
-
-**Objetivos de Optimización**
-
-El objetivo principal del algoritmo es maximizar la eficiencia energética de los paneles solares, ajustando continuamente su orientación para seguir la trayectoria del sol a lo largo del día y del año. Esto implica:
-
-•	Obtener automáticamente la fecha y hora del sistema para calcular la posición solar actual.
-•	Permitir al usuario ingresar manualmente las coordenadas geográficas para personalizar el cálculo según la ubicación del sistema de paneles solares.
-•	Calcular dinámicamente los ángulos de azimuth y elevación del sol.
-•	Presentar estos ángulos de manera clara para que los instaladores puedan ajustar físicamente la orientación de los paneles solares.
-
 
 ### **Análisis de Variables**
 
