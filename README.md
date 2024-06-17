@@ -223,6 +223,8 @@ Inicio del Programa
 ![WhatsApp Image 2024-06-16 at 20 38 25](https://github.com/Tayron2024/Prueba/assets/169932075/eb1d7412-5fe7-4b73-b3f4-056efa2056b4)
 ![WhatsApp Image 2024-06-16 at 20 38 48](https://github.com/Tayron2024/Prueba/assets/169932075/095a7a37-b0db-41b8-9191-86509380bc0e)
 ![WhatsApp Image 2024-06-16 at 20 39 44](https://github.com/Tayron2024/Prueba/assets/169932075/f79498db-ce68-4e5c-970b-2b8bf2e65ee0)
+- Struct Cordenadas
+![WhatsApp Image 2024-06-16 at 20 40 11](https://github.com/Tayron2024/Prueba/assets/169932075/7ae58325-d400-40d6-90a8-504e91a869a7)
 
 
 
