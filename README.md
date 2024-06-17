@@ -197,7 +197,7 @@ Inicio del Programa
     Fin del Programa
 
 ### **Codigo**
-https://github.com/Tayron2024/Prueba/blob/bcebf81f5c154aabe3eb27fdbf9cc63bc7908079/PruebaExamen.c
+https://github.com/Tayron2024/Prueba/blob/8ce7eb904625567ac654bec134dc7e77268db20d/PruebaExamen.c
 
 
 ### **Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
@@ -254,6 +254,7 @@ Para instalar o actualizar el compilador y las herramientas necesarias, así com
 
 
 Pasos para la Instalación y Compilación en Visual Studio Code (Windows)
+
 1. Instalar Visual Studio Code
 Si aún no tienes Visual Studio Code instalado, puedes descargarlo e instalarlo desde su sitio oficial.
 
@@ -287,11 +288,12 @@ En la terminal, navega hasta el directorio donde deseas clonar el repositorio us
 Clona el repositorio utilizando el comando git clone URL_del_repositorio donde URL_del_repositorio es la URL del repositorio en GitHub.
 Por ejemplo:
 
-git clone https://github.com/tu_usuario/tu_repositorio.git
+git clone https://github.com/tu_usuario/tu_repositorio.git (link de ejemplo no funcional)
 Esto creará una copia del repositorio en tu máquina local.
 Abrir el Proyecto en Visual Studio Code:
 
 Ve a File -> Open Folder... y selecciona la carpeta del repositorio clonado para abrirlo en Visual Studio Code.
+
 4. Compilar y Ejecutar el Código
 Configurar el Archivo de Configuración de Compilación:
 
