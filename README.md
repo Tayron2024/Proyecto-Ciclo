@@ -3,7 +3,7 @@
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
 
-![La_Transicion_Energetica_avanza_en_Colombia__En original](https://github.com/Tayron2024/Prueba/assets/169932075/2903adf4-26ce-4581-92b3-29dfc5fec765)
+![Banner-Blog-Airis](https://github.com/Tayron2024/Prueba/assets/169932075/ccfc80eb-5521-4334-81d7-65837258254f)
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
