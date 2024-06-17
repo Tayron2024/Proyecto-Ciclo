@@ -89,11 +89,17 @@ Variables:
 **Hora Local (horaLocal): Tiempo local ajustado por la longitud geográfica.**
 
 - Double horaLocal: Hora local ajustada por la longitud geográfica.
+  
 - Tiempo Solar Verdadero (tiempoSolarVerdadero): Momento del día en el cual el Sol está en su punto más alto en el cielo
+  
 - Double tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
+  
 - Altura Solar (alturaSolar): Ángulo de elevación del Sol sobre el horizonte.
+  
 - Double alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
+  
 - Azimuth (azimuth): Dirección del Sol medida desde el norte en sentido horario.
+  
 - Double azimuth: Dirección del Sol medida desde el norte en sentido horario.
 
 
@@ -237,20 +243,21 @@ Implementación en un Sistema Real:
 
 ### **Requisitos**
 
--Requisitos de Hardware**
+**Requisitos de Hardware**
 
-#Computadora o Dispositivo Compatible:
+### **Computadora o Dispositivo Compatible:**
 
-Un ordenador o dispositivo móvil capaz de ejecutar programas en lenguaje C.
+Se necesita un ordenador o dispositivo móvil capaz de ejecutar programas en lenguaje C.
 Procesador y memoria suficiente para ejecutar el sistema operativo y compilador.
 Requisitos de Software
-Sistema Operativo:
+
+### **Sistema Operativo:**
 
 Cualquier sistema operativo compatible con compiladores de C, como Windows, macOS, Linux, etc.
 
--Compilador de C:**
+### **Compilador de C:**
 
-#Un compilador de C compatible instalado en el sistema, como:
+**Un compilador de C compatible instalado en el sistema, como:**
 
 Para Windows: MinGW, Microsoft Visual Studio (con soporte para C), Cygwin.
 Para macOS: Xcode con Clang, GCC a través de Homebrew.
@@ -263,7 +270,8 @@ Detalles Adicionales
 Entorno de Desarrollo Integrado (IDE):
 
 Opcionalmente, un IDE como Visual Studio Code, Xcode, Eclipse o Code::Blocks puede facilitar el desarrollo y la depuración del código.
-Acceso a Internet:
+
+**Acceso a Internet:**
 
 Para instalar o actualizar el compilador y las herramientas necesarias, así como para acceder a documentación adicional.
 
@@ -272,13 +280,12 @@ Para instalar o actualizar el compilador y las herramientas necesarias, así com
 
 Pasos para la Instalación y Compilación en Visual Studio Code (Windows)
 
-1. Instalar Visual Studio Code
+### 1. Instalar Visual Studio Code
 Si aún no tienes Visual Studio Code instalado, puedes descargarlo e instalarlo desde su sitio oficial.
 
-2. Instalar MinGW (Minimalist GNU for Windows)
+### 2. Instalar MinGW (Minimalist GNU for Windows)
 MinGW es un entorno de desarrollo para Windows que proporciona una implementación de GCC (GNU Compiler Collection), necesario para compilar programas en C.
 
-Descarga el instalador de MinGW desde aquí.
 
 Durante la instalación de MinGW, asegúrate de seleccionar al menos las siguientes componentes:
 
@@ -293,7 +300,7 @@ En la sección "Variables del sistema", selecciona la variable PATH y haz clic e
 Añade la ruta donde MinGW está instalado (por ejemplo, C:\MinGW\bin) al final de la lista separada por un punto y coma si no está ya presente.
 Haz clic en "Aceptar" para cerrar todas las ventanas de configuración.
 
-3. Clonar el Repositorio desde GitHub
+### 3. Clonar el Repositorio desde GitHub
 Abre Visual Studio Code y sigue estos pasos:
 
 Abrir Terminal Integrada:
@@ -311,7 +318,7 @@ Abrir el Proyecto en Visual Studio Code:
 
 Ve a File -> Open Folder... y selecciona la carpeta del repositorio clonado para abrirlo en Visual Studio Code.
 
-4. Compilar y Ejecutar el Código
+### 4. Compilar y Ejecutar el Código
 Configurar el Archivo de Configuración de Compilación:
 
 Crea un archivo llamado tasks.json dentro de la carpeta .vscode en tu proyecto. Puedes crearlo manualmente o utilizando la funcionalidad de Visual Studio Code para generar tareas de compilación.
