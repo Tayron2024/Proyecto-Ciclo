@@ -3,8 +3,11 @@
 #include <time.h>
 
 #define PI 3.14159265
+//GpH (Grados por Hora)
 #define GpH 15.0
+//LONGEST (Longitud Estándar)
 #define LONGEST -75.0
+//vtre (Valor de la Tilt de la Tierra)
 #define vtre -23.44
 
 // Estructura para almacenar las coordenadas geográficas
