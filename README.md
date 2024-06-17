@@ -3,7 +3,7 @@
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
 
-![Fixed_Tilt_Solar_panel_at_Canterbury_Municipal_Building_Canterbury_New_Hampshire](https://github.com/Tayron2024/Prueba/assets/169932075/6f88713b-c88f-4d20-8756-9716a7b8830f)
+![Fixed_Tilt_Solar_panel_at_Canterbury_Municipal_Building_Canterbury_New_Hampshire](https://github.com/Tayron2024/Prueba/assets/169932075/cb2a8570-4e49-4edd-a686-8548d390fd6f)
 
 **Presentado por:** Tayron Morales, Matias Medina......,........
 
