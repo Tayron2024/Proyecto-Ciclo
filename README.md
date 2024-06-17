@@ -74,9 +74,9 @@ Variables:
 - Tiempo Solar Verdadero (tiempoSolarVerdadero): Momento del día en el cual el Sol está en su punto más alto en el cielo
 - "Double" tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
 - Altura Solar (alturaSolar): Ángulo de elevación del Sol sobre el horizonte.
-- "Double" alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
+- "Double" alturaSolar
 - Azimuth (azimuth): Dirección del Sol medida desde el norte en sentido horario.
-- "Double" azimuth: Dirección del Sol medida desde el norte en sentido horario.
+- "Double" azimuth
 
 
 **Influencia de las Variables**
@@ -89,10 +89,15 @@ Variables:
 ### **Explicación de las Estructuras de Datos y Funciones Utilizadas**
 
 •	Estructura struct Coordenadas:
+
 - Almacena la longitud y latitud ingresadas manualmente por el usuario para calcular la orientación solar
+  
 •	Funciones Utilizadas:
+
 - obtenerHoraLocal(struct tm *fechaHora): Obtiene la fecha y hora del sistema actual.
+  
 - ingresarCoordenadas(struct Coordenadas *coord): Permite al usuario ingresar las coordenadas geográficas.
+
 - Funciones para calcular la declinación solar, la ecuación del tiempo, la hora local, el tiempo solar verdadero, la altura solar, el ángulo de orientación solar y el azimuth solar.
 
 
