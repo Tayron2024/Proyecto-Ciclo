@@ -71,8 +71,8 @@ El objetivo principal del algoritmo es maximizar la eficiencia energética de lo
 Struct Coordenadas: Almacena la longitud y latitud del lugar donde se instalan los paneles solares
 Variables:
 
--	Double longitud: Longitud geográfica del lugar en grados.
--	Double latitud: Latitud geográfica del lugar en grados.
+-	"Double" longitud: Longitud geográfica del lugar en grados.
+-	"Double" latitud: Latitud geográfica del lugar en grados.
 -	Impacto: Determina la posición relativa del lugar respecto al Sol, afectando directamente los cálculos de azimuth y elevación solar.
 
   ![las-coordenadas-en-un-mapa-para-primaria](https://github.com/Tayron2024/Prueba/assets/169932075/3667fdac-1527-4faa-80d5-35dfd35ef9f7)
@@ -88,19 +88,19 @@ Variables:
 
 **Hora Local (horaLocal): Tiempo local ajustado por la longitud geográfica.**
 
-- Double horaLocal: Hora local ajustada por la longitud geográfica.
+- "Double" horaLocal: Hora local ajustada por la longitud geográfica.
   
 - Tiempo Solar Verdadero (tiempoSolarVerdadero): Momento del día en el cual el Sol está en su punto más alto en el cielo
   
-- Double tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
+- "Double" tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
   
 - Altura Solar (alturaSolar): Ángulo de elevación del Sol sobre el horizonte.
   
-- Double alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
+- "Double" alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
   
 - Azimuth (azimuth): Dirección del Sol medida desde el norte en sentido horario.
   
-- Double azimuth: Dirección del Sol medida desde el norte en sentido horario.
+- "Double" azimuth: Dirección del Sol medida desde el norte en sentido horario.
 
 
 **Influencia de las Variables**
@@ -118,11 +118,11 @@ Variables:
 
 •	Funciones Utilizadas:
 
--obtenerHoraLocal(struct tm *fechaHora): Obtiene la fecha y hora del sistema actual.
+- obtenerHoraLocal(struct tm *fechaHora): Obtiene la fecha y hora del sistema actual.
 
--ingresarCoordenadas(struct Coordenadas *coord): Permite al usuario ingresar las coordenadas geográficas.
+- ingresarCoordenadas(struct Coordenadas *coord): Permite al usuario ingresar las coordenadas geográficas.
 
--Funciones para calcular la declinación solar, la ecuación del tiempo, la hora local, el tiempo solar verdadero, la altura solar, el ángulo de orientación solar y el azimuth solar.
+- Funciones para calcular la declinación solar, la ecuación del tiempo, la hora local, el tiempo solar verdadero, la altura solar, el ángulo de orientación solar y el azimuth solar.
 
 
 
@@ -213,10 +213,17 @@ Inicio del Programa
     Fin del Programa
     
 ### **Diagrama de Flujo**
--
--
--
--
+
+- Funcion Main
+![WhatsApp Image 2024-06-16 at 20 33 21](https://github.com/Tayron2024/Prueba/assets/169932075/bdf435b5-470b-44da-a4d5-a6b0e2540ea7)
+![WhatsApp Image 2024-06-16 at 20 34 43](https://github.com/Tayron2024/Prueba/assets/169932075/2bfe0139-4eae-46d8-a893-9ec5124c95bd)
+![WhatsApp Image 2024-06-16 at 20 35 14](https://github.com/Tayron2024/Prueba/assets/169932075/a4164b02-8477-4b32-a36b-92fd760ee52d)
+![WhatsApp Image 2024-06-16 at 20 37 43](https://github.com/Tayron2024/Prueba/assets/169932075/213a85d5-f550-45e6-81b7-1f4658b8a61a)
+![WhatsApp Image 2024-06-16 at 20 38 01](https://github.com/Tayron2024/Prueba/assets/169932075/8fc25954-c906-4a1c-bf54-75cfb3242dfa)
+![WhatsApp Image 2024-06-16 at 20 38 25](https://github.com/Tayron2024/Prueba/assets/169932075/eb1d7412-5fe7-4b73-b3f4-056efa2056b4)
+![WhatsApp Image 2024-06-16 at 20 38 48](https://github.com/Tayron2024/Prueba/assets/169932075/095a7a37-b0db-41b8-9191-86509380bc0e)
+![WhatsApp Image 2024-06-16 at 20 39 44](https://github.com/Tayron2024/Prueba/assets/169932075/f79498db-ce68-4e5c-970b-2b8bf2e65ee0)
+
 
 
 ### **Codigo**
