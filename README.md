@@ -11,7 +11,9 @@
 
 ### **Descripción del Proyecto**
 
-En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
+En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. 
+Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. 
+Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
 
 
 ### **Descripción del Problema y Objetivo del Algoritmo**
