@@ -24,11 +24,8 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 ### **El objetivo del algoritmo es proporcionar una herramienta computacional que permita:**
 
 -	Obtener automáticamente la fecha y hora del sistema.
-  
 -	Permitir al usuario ingresar manualmente las coordenadas geográficas donde se instalarán los paneles solares.
-   
 -	Calcular la orientación óptima de los paneles solares en términos de azimuth y ángulo de elevación.
-   
 -	Mostrar estos valores para que los instaladores puedan ajustar físicamente la posición de los paneles solares.
 
    
@@ -39,11 +36,8 @@ El problema abordado es determinar la orientación óptima de paneles solares en
 El objetivo principal del algoritmo es maximizar la eficiencia energética de los paneles solares, ajustando continuamente su orientación para seguir la trayectoria del sol a lo largo del día y del año. Esto implica:
 
 •	Obtener automáticamente la fecha y hora del sistema para calcular la posición solar actual.
-
 •	Permitir al usuario ingresar manualmente las coordenadas geográficas para personalizar el cálculo según la ubicación del sistema de paneles solares.
-
 •	Calcular dinámicamente los ángulos de azimuth y elevación del sol.
-
 •	Presentar estos ángulos de manera clara para que los instaladores puedan ajustar físicamente la orientación de los paneles solares.
 
 
@@ -51,8 +45,8 @@ El objetivo principal del algoritmo es maximizar la eficiencia energética de lo
 
 **1.Fecha y Hora:**
 
--Struct tm: Representa la fecha y hora del sistema, incluyendo detalles como hora, minutos, segundos, día del mes, mes, año, etc.
--Variables:
+- Struct tm: Representa la fecha y hora del sistema, incluyendo detalles como hora, minutos, segundos, día del mes, mes, año, etc.
+- Variables:
 1.	int tm_sec: Segundos.
 2.	int tm_min: Minutos.
 3.	int tm_hour: Horas.
@@ -89,17 +83,11 @@ Variables:
 **Hora Local (horaLocal): Tiempo local ajustado por la longitud geográfica.**
 
 - "Double" horaLocal: Hora local ajustada por la longitud geográfica.
-  
 - Tiempo Solar Verdadero (tiempoSolarVerdadero): Momento del día en el cual el Sol está en su punto más alto en el cielo
-  
 - "Double" tiempoSolarVerdadero: Momento del día en el cual el Sol está en su punto más alto en el cielo.
-  
 - Altura Solar (alturaSolar): Ángulo de elevación del Sol sobre el horizonte.
-  
 - "Double" alturaSolar: Ángulo de elevación del Sol sobre el horizonte.
-  
 - Azimuth (azimuth): Dirección del Sol medida desde el norte en sentido horario.
-  
 - "Double" azimuth: Dirección del Sol medida desde el norte en sentido horario.
 
 
@@ -113,17 +101,11 @@ Variables:
 ### **Explicación de las Estructuras de Datos y Funciones Utilizadas**
 
 •	Estructura struct Coordenadas:
-
--Almacena la longitud y latitud ingresadas manualmente por el usuario para calcular la orientación solar.
-
+- Almacena la longitud y latitud ingresadas manualmente por el usuario para calcular la orientación solar
 •	Funciones Utilizadas:
-
 - obtenerHoraLocal(struct tm *fechaHora): Obtiene la fecha y hora del sistema actual.
-
 - ingresarCoordenadas(struct Coordenadas *coord): Permite al usuario ingresar las coordenadas geográficas.
-
 - Funciones para calcular la declinación solar, la ecuación del tiempo, la hora local, el tiempo solar verdadero, la altura solar, el ángulo de orientación solar y el azimuth solar.
-
 
 
 ### **Un pseudocódigo y diagramas de flujo del algoritmo original comparados con la implementación en C.**
@@ -234,20 +216,14 @@ https://github.com/Tayron2024/Prueba/blob/99ff764baa2cb27f678a62f825c885cea94677
 
 ### **Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
 
-Implementación en un Sistema Real:
+**Implementación en un Sistema Real:**
 
 •	Interfaz de Usuario: El código puede integrarse en una aplicación con una interfaz gráfica para facilitar la entrada de coordenadas y mostrar los ángulos de orientación de manera más visual.
-
 •	Sensores y Actuadores: En sistemas de paneles solares automatizados, el cálculo de orientación puede controlarse mediante sensores que detecten la posición del Sol y actuadores que ajusten automáticamente la inclinación y orientación de los paneles.
-
 •	Integración con Predicciones Meteorológicas: Podría integrarse con datos meteorológicos en tiempo real para anticipar cambios en la radiación solar y ajustar la orientación de los paneles en consecuencia.
-
 •	Optimización de Algoritmos: Implementar algoritmos más precisos y eficientes para el cálculo de la posición del Sol, considerando factores atmosféricos y variaciones climáticas.
-
 •	Simulaciones y Modelos Predictivos: Desarrollar modelos predictivos que consideren el cambio estacional y la variabilidad climática para optimizar aún más la orientación de los paneles solares.
-
 •	Soporte para Múltiples Paneles: Extender el código para manejar configuraciones con múltiples paneles solares, cada uno con su orientación óptima calculada dinámicamente.
-
 •	Monitorización y Mantenimiento Remoto: Integrar funcionalidades de monitorización remota para supervisar el rendimiento de los paneles y realizar ajustes de orientación cuando sea necesario.
 
 ### **Requisitos**
