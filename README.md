@@ -3,11 +3,11 @@
 
 ## **Algoritmo para Optimización de Orientación de Paneles Solares**
 
-![Banner-Blog-Airis](https://github.com/Tayron2024/Prueba/assets/169932075/ccfc80eb-5521-4334-81d7-65837258254f)
-
-**Presentado por:** Tayron Morales, Matias Medina......,........
+**Presentado por: Tayron Morales, Matias Medina**
 
 **Fecha:** 16/06/2024
+
+![Banner-Blog-Airis](https://github.com/Tayron2024/Prueba/assets/169932075/ccfc80eb-5521-4334-81d7-65837258254f)
 
 ### **Descripción del Proyecto**
 
