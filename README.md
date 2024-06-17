@@ -359,6 +359,7 @@ Ingresar las Coordenadas Geográficas:
 El programa solicitará ingresar la longitud y la latitud en grados. Sigue las instrucciones que aparecen en la consola y proporciona las coordenadas geográficas adecuadas cuando se te solicite.
 Ejemplos de Comandos y Posibles Resultados
 
+### **EJEMPLOS**
 
 Ejemplo 1: Coordenadas de Nueva York
 Supongamos que las coordenadas geográficas para Nueva York son:
