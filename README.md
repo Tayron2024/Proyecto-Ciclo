@@ -197,6 +197,13 @@ Inicio del Programa
         Mostrar "Ángulo de elevación solar: " + anguloOrientacion + " grados"
 
     Fin del Programa
+    
+### **Diagrama de Flujo**
+-
+-
+-
+-
+
 
 ### **Codigo**
 https://github.com/Tayron2024/Prueba/blob/8ce7eb904625567ac654bec134dc7e77268db20d/PruebaExamen.c
