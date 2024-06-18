@@ -1,127 +1,154 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+#include <windows.h>
 
-// Definición de PI
-#define PI 3.14159265      
-// Grados por Hora
-#define GpH 15.0     
-// Longitud Estándar (Longitud Oeste)
-#define LONGEST -75.0      
-// Valor de la Tilt de la Tierra (Inclinación axial)
-#define vtre -23.44           
+#define PI 3.14159265
+#define GpH 15.0
+#define LONGEST -75.0
+#define vtre -23.44
 
-// Estructura para almacenar las coordenadas geográficas
-struct Coordenadas {
-// Longitud en grados
-    double longitud;   
-// Latitud en grados
-    double latitud;     
+struct CoordenadasChar{
+    char longitud[265];
+    char latitud[265];
+};
+struct CoordenadasNum{
+    double longitud;
+    double latitud;
 };
 
-// Función para obtener la fecha y hora local del sistema
-void obtenerHoraLocal(struct tm *fechaHora) {
-    // Obtiene el tiempo actual en segundos desde epoch (01/01/1970)
-    time_t t = time(NULL);     
-    // Convierte el tiempo en una estructura tm local
-    *fechaHora = *localtime(&t); 
+
+void obtenerHoraLocal(struct tm *fechaHora);
+
+
+void ingresarCoordenadas(struct CoordenadasChar *coord, struct CoordenadasNum coordNum);
+void validar(char num[]);
+
+double calcularDeclinacion(struct tm fechaHora);
+
+double calcularEcuacionDelTiempo(struct tm fechaHora);
+
+double calcularHoraLocal(struct tm fechaHora);
+
+double calcularTiempoSolarVerdadero(struct CoordenadasNum coord, double horaLocal, double ecuacionTiempo);
+
+double calcularAlturaSolar(double tiempoSolarVerdadero);
+
+double calcularAnguloOrientacion(double alturaSolar, double declinacion, double latitud);
+
+double calcularAzimuth(double declinacion, double latitud, double alturaSolar);
+void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacion);
+
+int main() {
+    struct CoordenadasChar CoordenadasChar;
+    struct CoordenadasNum CoordenadasNum;
+
+    struct tm fechaHora;
+    
+        ingresarCoordenadas(&CoordenadasChar,CoordenadasNum);
+        obtenerHoraLocal(&fechaHora);
+
+    
+        double declinacion = calcularDeclinacion(fechaHora);
+
+        double ecuacionTiempo = calcularEcuacionDelTiempo(fechaHora);
+
+        double horaLocal = calcularHoraLocal(fechaHora);
+
+        double tiempoSolarVerdadero = calcularTiempoSolarVerdadero(CoordenadasNum, horaLocal, ecuacionTiempo);
+
+        double alturaSolar = calcularAlturaSolar(tiempoSolarVerdadero);
+
+        double anguloOrientacion = calcularAnguloOrientacion(alturaSolar, declinacion, CoordenadasNum.latitud);
+
+        double azimuth = calcularAzimuth(declinacion, CoordenadasNum.latitud, alturaSolar);
+
+        PresentarDatos(fechaHora,azimuth, anguloOrientacion);
+        
+    return 0;
 }
 
-// Función para que el usuario ingrese las coordenadas geográficas
-void ingresarCoordenadas(struct Coordenadas *coord) {
+void obtenerHoraLocal(struct tm *fechaHora){
+    struct tm fechaActual;
+    time_t t = time(NULL);
+    *fechaHora = *localtime(&t);
+    
+    fechaActual.tm_year = fechaHora->tm_year +1900;
+    fechaActual.tm_hour = fechaHora->tm_hour;
+    fechaActual.tm_min= fechaHora->tm_min;
+    fechaActual.tm_yday= fechaHora->tm_yday+1; 
+}
+
+void ingresarCoordenadas(struct CoordenadasChar *coordChar, struct CoordenadasNum coordNum){
     printf("Ingrese la longitud (en grados): ");
-    // Lee la longitud desde la entrada estándar
-    scanf("%lf", &coord->longitud);    
+    scanf("%s", &coordChar->longitud);
+    validar(coordChar->longitud);
+    coordNum.longitud = atof(coordChar->longitud);
     printf("Ingrese la latitud (en grados): ");
-    // Lee la latitud desde la entrada estándar
-    scanf("%lf", &coord->latitud);     
+    scanf("%s", &coordChar->latitud);
+    validar(coordChar->latitud);
+    coordNum.latitud = atof(coordChar->latitud);
+
 }
 
-/*Función para calcular la declinación solar
- Utiliza la fórmula de declinación solar en función del día del año*/
-double calcularDeclinacion(struct tm fechaHora) {
-    int diaDelAnio = fechaHora.tm_yday + 1;
+void validar(char num[]) {
+    for (int i = 0; i < strlen(num); i++) {
+        if (!isdigit(num[i]) && num[i] != '-' && num[i] != '.') {
+            printf("Ingrese un numero valido: ");
+            scanf("%s", num); // Permite al usuario ingresar un nuevo valor
+            validar(num); // Llama a la función de validación nuevamente
+            return;
+        }
+    }
+}
+
+double calcularDeclinacion(struct tm fechaHora){
+    int diaDelAnio = fechaHora.tm_yday;
     return vtre * cos(2 * PI * (diaDelAnio + 10) / 365.0);
 }
 
-/* Función para calcular la ecuación del tiempo
- Utiliza la fórmula de la ecuación del tiempo basada en el día del año*/
-double calcularEcuacionDelTiempo(struct tm fechaHora) {
+double calcularEcuacionDelTiempo(struct tm fechaHora){
     int diaDelAnio = fechaHora.tm_yday + 1;
     double B = (2 * PI * (diaDelAnio - 81)) / 365.0;
     return 9.87 * sin(2 * B) - 7.53 * cos(B) - 1.5 * sin(B);
 }
 
-/* Función para calcular la hora local del sistema
- Convierte la hora, minutos y segundos a fracción de horas*/
 double calcularHoraLocal(struct tm fechaHora) {
     return fechaHora.tm_hour + fechaHora.tm_min / 60.0 + fechaHora.tm_sec / 3600.0;
 }
 
-/* Función para calcular el tiempo solar verdadero
-Ajusta la hora local por la longitud geográfica y la ecuación del tiempo*/
-double calcularTiempoSolarVerdadero(struct Coordenadas coord, double horaLocal, double ecuacionTiempo) {
+double calcularTiempoSolarVerdadero(struct CoordenadasNum coord, double horaLocal, double ecuacionTiempo) {
     return horaLocal + (4 * (coord.longitud - LONGEST) + ecuacionTiempo) / 60.0;
 }
 
-/* Función para calcular la altura solar
- Determina el ángulo de elevación del Sol sobre el horizonte en función del tiempo solar verdadero*/
 double calcularAlturaSolar(double tiempoSolarVerdadero) {
     return GpH * (tiempoSolarVerdadero - 12.0);
 }
 
-/* Función para calcular el ángulo de orientación de los paneles solares
- Utiliza la fórmula del ángulo de elevación solar y la declinación solar para determinar el ángulo óptimo*/
 double calcularAnguloOrientacion(double alturaSolar, double declinacion, double latitud) {
     double anguloRad = asin(sin(declinacion * PI / 180.0) * sin(latitud * PI / 180.0) +
                             cos(declinacion * PI / 180.0) * cos(latitud * PI / 180.0) * cos(alturaSolar * PI / 180.0));
     return anguloRad * 180.0 / PI;
 }
-
-/* Función para calcular el azimuth solar
- Determina la dirección del Sol medida desde el norte en sentido horario*/
 double calcularAzimuth(double declinacion, double latitud, double alturaSolar) {
     double azimuthRad = acos((sin(declinacion * PI / 180.0) - sin(alturaSolar * PI / 180.0) * sin(latitud * PI / 180.0)) /
                              (cos(alturaSolar * PI / 180.0) * cos(latitud * PI / 180.0)));
     return azimuthRad * 180.0 / PI;
 }
 
-// Función principal
-int main() {
-    struct Coordenadas coordenadas;
-    struct tm fechaHora;
+void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacion){
+    for (fechaHora.tm_hour; fechaHora.tm_hour <24; fechaHora.tm_hour++){
+        for ( fechaHora.tm_min; fechaHora.tm_min< 60; fechaHora.tm_min++){
+            for (fechaHora.tm_sec; fechaHora.tm_sec< 60; fechaHora.tm_sec++){
+                system("@cls||clear");
+                printf("Fecha de ejecucion: \t %d/%d/%d", fechaHora.tm_mday, fechaHora.tm_mon, fechaHora.tm_year);
+                printf("\nHora de ejecucion:\t %d: %d:%d\n",fechaHora.tm_hour, fechaHora.tm_min,fechaHora.tm_sec); 
+                printf("Orientacion optima de los paneles solares:\n");
+                printf("Azimuth solar: %lf grados\n", azimuth);
+                printf("Angulo de elevacion solar: %.2f grados\n\n", anguloOrientacion);
+                Sleep(1000);
+            }   
+        }   
+    }
 
-    // Obtener la fecha y hora local del sistema
-    obtenerHoraLocal(&fechaHora);
-
-    // Solicitar al usuario que ingrese las coordenadas geográficas
-    ingresarCoordenadas(&coordenadas);
-
-    // Calcular la declinación solar en función de la fecha y hora obtenidas
-    double declinacion = calcularDeclinacion(fechaHora);
-
-    // Calcular la ecuación del tiempo basada en la fecha y hora
-    double ecuacionTiempo = calcularEcuacionDelTiempo(fechaHora);
-
-    // Calcular la hora local ajustada por la longitud geográfica
-    double horaLocal = calcularHoraLocal(fechaHora);
-
-    // Calcular el tiempo solar verdadero ajustado por la ecuación del tiempo y la longitud
-    double tiempoSolarVerdadero = calcularTiempoSolarVerdadero(coordenadas, horaLocal, ecuacionTiempo);
-
-    // Calcular la altura solar en función del tiempo solar verdadero
-    double alturaSolar = calcularAlturaSolar(tiempoSolarVerdadero);
-
-    // Calcular el ángulo de orientación de los paneles solares
-    double anguloOrientacion = calcularAnguloOrientacion(alturaSolar, declinacion, coordenadas.latitud);
-
-    // Calcular el azimuth solar
-    double azimuth = calcularAzimuth(declinacion, coordenadas.latitud, alturaSolar);
-
-    // Mostrar los resultados de la orientación óptima de los paneles solares
-    printf("\nOrientación óptima de los paneles solares:\n");
-    printf("Azimuth solar: %.2f grados\n", azimuth);
-    printf("Ángulo de elevación solar: %.2f grados\n", anguloOrientacion);
-
-    return 0;
 }
