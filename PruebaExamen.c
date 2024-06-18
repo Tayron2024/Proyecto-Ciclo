@@ -1,3 +1,14 @@
+/**
+ * @file SF.c
+ * @author Mathías Medina - Tayron Morales - Victor Macas (  )
+ * @brief 
+ * @version 0.1
+ * @date 2024-06-17
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
@@ -150,5 +161,4 @@ void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacio
             }   
         }   
     }
-
 }
