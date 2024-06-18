@@ -106,8 +106,8 @@ void validar(char num[]) {
     for (int i = 0; i < strlen(num); i++) {
         if (!isdigit(num[i]) && num[i] != '-' && num[i] != '.') {
             printf("Ingrese un numero valido: ");
-            scanf("%s", num); // Permite al usuario ingresar un nuevo valor
-            validar(num); // Llama a la función de validación nuevamente
+            scanf("%s", num); 
+            validar(num); 
             return;
         }
     }
