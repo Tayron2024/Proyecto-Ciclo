@@ -211,6 +211,31 @@ Inicio del Programa
 ### **Codigo**
 https://github.com/Tayron2024/Prueba/blob/99ff764baa2cb27f678a62f825c885cea9467747/PruebaExamen.c
 
+Cálculos Utilizados
+
+![Imagen1](https://github.com/Tayron2024/Prueba/assets/169932075/5a535d61-1b50-482b-b9d4-d33bef203b0a)
+
+![Imagen2](https://github.com/Tayron2024/Prueba/assets/169932075/9718da92-bfe6-4bba-8938-d4f12c56adc7)
+
+![Imagen3](https://github.com/Tayron2024/Prueba/assets/169932075/2a9ee401-edf2-4574-b663-8a5d2e0cf77a)
+
+![Imagen4](https://github.com/Tayron2024/Prueba/assets/169932075/63c643f5-478e-4c86-8f66-5e917959f1d6)
+
+![Imagen5](https://github.com/Tayron2024/Prueba/assets/169932075/aad616c4-6974-44e4-9bd8-6c740193f479)
+
+![Imagen6](https://github.com/Tayron2024/Prueba/assets/169932075/1bc3ff22-89f0-4ca3-9704-09c83055faf8)
+
+
+Referencias
+https://images.app.goo.gl/txU9i8VxaMnANEcr6
+https://images.app.goo.gl/2c4oqbHvELzahhqCA
+https://images.app.goo.gl/y75bgKa2di76gcsB6	
+https://es.planetcalc.com/4270/
+https://www.pveducation.org/es/fotovoltaica/2-propiedades-de-la-luz-del-sol/hora-solar
+https://concepto.de/coordenadas-geograficas/
+https://www.coordenadas-gps.com
+https://www.sfe-solar.com/noticias/articulos/parametros-panel-fotovoltaico/
+
 
 ### **Implementación en un Sistema Real de Paneles Solares y Mejoras Futuras**
 
