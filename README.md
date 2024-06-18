@@ -228,12 +228,19 @@ Cálculos Utilizados
 
 Referencias
 https://images.app.goo.gl/txU9i8VxaMnANEcr6
+
 https://images.app.goo.gl/2c4oqbHvELzahhqCA
+
 https://images.app.goo.gl/y75bgKa2di76gcsB6	
+
 https://es.planetcalc.com/4270/
+
 https://www.pveducation.org/es/fotovoltaica/2-propiedades-de-la-luz-del-sol/hora-solar
+
 https://concepto.de/coordenadas-geograficas/
+
 https://www.coordenadas-gps.com
+
 https://www.sfe-solar.com/noticias/articulos/parametros-panel-fotovoltaico/
 
 
