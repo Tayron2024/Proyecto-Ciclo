@@ -1,0 +1,52 @@
+#include <Servo.h>
+
+Servo myservo;  // crea el objeto del servomotor
+
+// Pines de las fotorresistencias
+const int ldrPin1 = A0;
+const int ldrPin2 = A1;
+
+// Pin del servomotor
+const int servoPin = 9;
+
+void setup() {
+  // Inicializa el servomotor en el pin especificado
+  myservo.attach(servoPin);
+  // Inicializa la posición del servomotor
+  myservo.write(90);  // posición central (neutral)
+  // Inicializa la comunicación serial para depuración
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Lee los valores de las fotorresistencias
+  int ldrValue1 = analogRead(ldrPin1);
+  int ldrValue2 = analogRead(ldrPin2);
+  
+  // Muestra los valores leídos en el monitor serial
+  Serial.print("LDR 1: ");
+  Serial.print(ldrValue1);
+  Serial.print("  LDR 2: ");
+  Serial.println(ldrValue2);
+
+  // Calcula la diferencia entre las lecturas
+  int difference = ldrValue1 - ldrValue2;
+  
+  // Define un umbral para considerar las diferencias significativas
+  int threshold = 50;
+
+  // Ajusta la posición del servomotor basado en la diferencia
+  if (difference > threshold) {
+    // Si LDR1 detecta más luz que LDR2, mover a la izquierda
+    myservo.write(0); // ajustar el valor según tu servomotor
+  } else if (difference < -threshold) {
+    // Si LDR2 detecta más luz que LDR1, mover a la derecha
+    myservo.write(180); // ajustar el valor según tu servomotor
+  } else {
+    // Si la diferencia es pequeña, mantener la posición central
+    myservo.write(90);
+  }
+  
+  // Espera un poco antes de leer de nuevo
+  delay(100);
+}
