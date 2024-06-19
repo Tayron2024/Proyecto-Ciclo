@@ -14,11 +14,9 @@ Diapos: https://www.canva.com/design/DAFoeF7Q2z0/Hlvmx4vdAuXlucRIEMYkCw/edit?utm
 
 ### **Descripción del Proyecto**
 
-En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. 
-Para maximizar la eficiencia de estos sistemas, es fundamental optimizar la orientación de los paneles solares de manera dinámica, considerando la posición cambiante del Sol a lo largo del día y del año. 
-Este trabajo presenta un algoritmo diseñado para calcular automáticamente los ángulos de azimuth y elevación del Sol, asegurando así que los paneles solares capturen la máxima radiación solar disponible en todo momento.
+En el contexto de la creciente necesidad de utilizar fuentes de energía renovable, los paneles solares juegan un papel crucial al convertir la radiación solar en electricidad. Esta forma de generación energética no solo es sostenible sino también fundamental para reducir la dependencia de combustibles fósiles. Para maximizar la eficiencia de estos sistemas, es esencial optimizar dinámicamente la orientación de los paneles solares. Esto implica ajustar continuamente los ángulos de azimuth y elevación de los paneles para seguir la trayectoria del Sol a lo largo del día y durante las estaciones del año. Este trabajo presenta un algoritmo innovador diseñado para calcular automáticamente estos ángulos, garantizando así que los paneles solares capturen la máxima radiación solar disponible en todo momento, y contribuyan de manera óptima a la generación de energía renovable.
 
-
+ 
 ### **Descripción del Problema y Objetivo del Algoritmo**
 
 El problema abordado consiste en determinar la orientación óptima de los paneles solares en tiempo real para maximizar la captación de luz solar. Esto implica calcular dinámicamente los ángulos de azimuth y elevación del sol según la ubicación geográfica y la hora del día, garantizando que los paneles solares estén orientados de manera que puedan capturar la máxima radiación solar disponible en cada momento.
