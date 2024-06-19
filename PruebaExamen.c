@@ -1,15 +1,18 @@
 /**
  * @file SF.c
- * @author Mathías Medina - Tayron Morales - Victor Macas (  )
+ * @author Mathías Medina - Tayron Morales - Victor Macas
  * @brief 
  * @version 0.1
- * @date 2024-06-17
+ * @date 2024-06-18
  * 
  * @copyright Copyright (c) 2024
  * 
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 #include <math.h>
 #include <time.h>
 #include <windows.h>
@@ -17,7 +20,7 @@
 #define PI 3.14159265
 #define GpH 15.0
 #define LONGEST -75.0
-#define vtre -23.44
+#define D_ISol -23.44
 
 struct CoordenadasChar{
     char longitud[265];
@@ -28,25 +31,15 @@ struct CoordenadasNum{
     double latitud;
 };
 
-
 void obtenerHoraLocal(struct tm *fechaHora);
-
-
 void ingresarCoordenadas(struct CoordenadasChar *coord, struct CoordenadasNum coordNum);
 void validar(char num[]);
-
 double calcularDeclinacion(struct tm fechaHora);
-
 double calcularEcuacionDelTiempo(struct tm fechaHora);
-
 double calcularHoraLocal(struct tm fechaHora);
-
 double calcularTiempoSolarVerdadero(struct CoordenadasNum coord, double horaLocal, double ecuacionTiempo);
-
 double calcularAlturaSolar(double tiempoSolarVerdadero);
-
 double calcularAnguloOrientacion(double alturaSolar, double declinacion, double latitud);
-
 double calcularAzimuth(double declinacion, double latitud, double alturaSolar);
 void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacion);
 
@@ -91,14 +84,23 @@ void obtenerHoraLocal(struct tm *fechaHora){
 }
 
 void ingresarCoordenadas(struct CoordenadasChar *coordChar, struct CoordenadasNum coordNum){
-    printf("Ingrese la longitud (en grados): ");
+    printf("Ingrese la longitud dentro de -180 a 180 (en grados): ");
     scanf("%s", &coordChar->longitud);
     validar(coordChar->longitud);
     coordNum.longitud = atof(coordChar->longitud);
+    if (coordNum.longitud > 180 || coordNum.longitud< - 180){
+        printf("Ingrese la longitud dentro de -180 a 180 (en grados): ");
+        scanf("%d", &coordNum.longitud);
+    }
+    
     printf("Ingrese la latitud (en grados): ");
     scanf("%s", &coordChar->latitud);
     validar(coordChar->latitud);
     coordNum.latitud = atof(coordChar->latitud);
+    if (coordNum.latitud > 90 || coordNum.latitud < -90){
+        printf("Ingrese la latitud dentro de -90 a 90 (en grados): ");
+        scanf("%d", &coordNum.latitud);
+    }
 
 }
 
@@ -115,7 +117,7 @@ void validar(char num[]) {
 
 double calcularDeclinacion(struct tm fechaHora){
     int diaDelAnio = fechaHora.tm_yday;
-    return vtre * cos(2 * PI * (diaDelAnio + 10) / 365.0);
+    return D_ISol * cos(2 * PI * (diaDelAnio + 10) / 365.0);
 }
 
 double calcularEcuacionDelTiempo(struct tm fechaHora){
@@ -148,16 +150,18 @@ double calcularAzimuth(double declinacion, double latitud, double alturaSolar) {
 }
 
 void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacion){
-    for (fechaHora.tm_hour; fechaHora.tm_hour <24; fechaHora.tm_hour++){
-        for ( fechaHora.tm_min; fechaHora.tm_min< 60; fechaHora.tm_min++){
-            for (fechaHora.tm_sec; fechaHora.tm_sec< 60; fechaHora.tm_sec++){
+    
+    for (fechaHora.tm_hour; fechaHora.tm_hour <= 24; fechaHora.tm_hour++){
+        for ( fechaHora.tm_min; fechaHora.tm_min < 60; fechaHora.tm_min++){
+            for (fechaHora.tm_sec; fechaHora.tm_sec < 60; fechaHora.tm_sec++){
                 system("@cls||clear");
                 printf("Fecha de ejecucion: \t %d/%d/%d", fechaHora.tm_mday, fechaHora.tm_mon, fechaHora.tm_year);
-                printf("\nHora de ejecucion:\t %d: %d:%d\n",fechaHora.tm_hour, fechaHora.tm_min,fechaHora.tm_sec); 
-                printf("Orientacion optima de los paneles solares:\n");
-                printf("Azimuth solar: %lf grados\n", azimuth);
-                printf("Angulo de elevacion solar: %.2f grados\n\n", anguloOrientacion);
+                printf("\n\rHora de ejecucion: %d: %d:%d\n", fechaHora.tm_hour, fechaHora.tm_min,fechaHora.tm_sec);
+                printf("\nOrientacion optima de los paneles solares:\n");
+                printf("Azimuth solar: %.2lf grados\n", azimuth);
+                printf("Angulo de elevacion solar: %.2lf grados\n\n", anguloOrientacion);
                 Sleep(1000);
+                 
             }   
         }   
     }
