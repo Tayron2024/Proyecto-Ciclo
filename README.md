@@ -21,8 +21,7 @@ Este trabajo presenta un algoritmo diseñado para calcular automáticamente los 
 
 ### **Descripción del Problema y Objetivo del Algoritmo**
 
-El problema abordado es determinar la orientación óptima de paneles solares en tiempo real para maximizar la captación de luz solar. Esto implica calcular dinámicamente los ángulos de azimuth y elevación del sol en función de la ubicación geográfica y la hora del día, asegurando así que los paneles solares estén orientados de manera que capturen la máxima radiación solar posible en todo momento.
-
+El problema abordado consiste en determinar la orientación óptima de los paneles solares en tiempo real para maximizar la captación de luz solar. Esto implica calcular dinámicamente los ángulos de azimuth y elevación del sol según la ubicación geográfica y la hora del día, garantizando que los paneles solares estén orientados de manera que puedan capturar la máxima radiación solar disponible en cada momento.
 
 ### **El objetivo del algoritmo es proporcionar una herramienta computacional que permita:**
 
