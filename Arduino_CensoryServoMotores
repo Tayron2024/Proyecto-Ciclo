@@ -33,20 +33,19 @@ void loop() {
   int difference = ldrValue1 - ldrValue2;
   
   // Define un umbral para considerar las diferencias significativas
-  int threshold = 50;
+  int threshold = 10;
+  // Define el incremento del ángulo de ajuste
+  int step = 1;
+
+  // Obtiene la posición actual del servomotor
+  int currentPos = myservo.read();
 
   // Ajusta la posición del servomotor basado en la diferencia
   if (difference > threshold) {
     // Si LDR1 detecta más luz que LDR2, mover a la izquierda
-    myservo.write(0); // ajustar el valor según tu servomotor
+    currentPos -= step;
+    if (currentPos < 0) currentPos = 0;
   } else if (difference < -threshold) {
     // Si LDR2 detecta más luz que LDR1, mover a la derecha
-    myservo.write(180); // ajustar el valor según tu servomotor
-  } else {
-    // Si la diferencia es pequeña, mantener la posición central
-    myservo.write(90);
-  }
-  
-  // Espera un poco antes de leer de nuevo
-  delay(100);
-}
+    currentPos += step;
+    if (currentPos > 180) currentPos = 180;
