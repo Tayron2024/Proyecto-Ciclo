@@ -18,30 +18,115 @@
 #include <windows.h>
 
 #define PI 3.14159265
+// Grados por hora
 #define GpH 15.0
+// Longitud estándar para referencia
 #define LONGEST -75.0
+// Declinación solar promedio
 #define D_ISol -23.44
 
+/**CoordenadasChar
+  Estructura para almacenar coordenadas en formato de cadena.*/
+
 struct CoordenadasChar{
+    //Longitud en grados (cadena)
     char longitud[265];
+    //Latitud en grados (cadena)
     char latitud[265];
 };
+
+/**struct CoordenadasNum
+ * Estructura para almacenar coordenadas en formato numérico.*/
+
 struct CoordenadasNum{
+    //Longitud en grados (numérico)
     double longitud;
+    //Latitud en grados (numérico)
     double latitud;
 };
 
+/**Función para obtener la hora local del sistema.
+  fechaHora Puntero a la estructura tm donde se almacenará la fecha y hora local.*/
+
 void obtenerHoraLocal(struct tm *fechaHora);
+
+/**Función para ingresar coordenadas de longitud y latitud.
+  coordChar Puntero a la estructura CoordenadasChar para ingresar coordenadas como cadena.
+  coordNum Estructura CoordenadasNum para almacenar coordenadas como números.*/
+
 void ingresarCoordenadas(struct CoordenadasChar *coord, struct CoordenadasNum coordNum);
+
+/**Función para validar que una cadena de caracteres sea un número válido.
+  num Cadena que se desea validar.*/
+
 void validar(char num[]);
+
+/**Función para calcular la declinación solar.
+  fechaHora Estructura tm que contiene la fecha y hora actual.
+  double Valor de la declinación solar en grados.*/
+
 double calcularDeclinacion(struct tm fechaHora);
+
+/**Función para calcular la ecuación del tiempo.
+  fechaHora Estructura tm que contiene la fecha y hora actual.
+  double Valor de la ecuación del tiempo en minutos.*/
+
 double calcularEcuacionDelTiempo(struct tm fechaHora);
+
+/**Función para calcular la hora local.
+  fechaHora Estructura tm que contiene la fecha y hora actual.
+  double Valor de la hora local en horas decimales.*/
+
 double calcularHoraLocal(struct tm fechaHora);
+
+/**Función para calcular el tiempo solar verdadero.
+  coord Estructura CoordenadasNum que contiene la longitud y latitud.
+  horaLocal Hora local en horas decimales.
+  ecuacionTiempo Valor de la ecuación del tiempo en minutos.
+  double Valor del tiempo solar verdadero en horas decimales.
+  */  
 double calcularTiempoSolarVerdadero(struct CoordenadasNum coord, double horaLocal, double ecuacionTiempo);
+
+/**
+  Función para calcular la altura solar.
+  tiempoSolarVerdadero Tiempo solar verdadero en horas decimales.
+  double Altura solar en grados.
+ */
+
 double calcularAlturaSolar(double tiempoSolarVerdadero);
+
+/**
+ Función para calcular el ángulo de orientación de los paneles solares.
+  Altura solar en grados.
+  Declinación solar en grados.
+  Latitud en grados.
+  double Ángulo de orientación de los paneles solares en grados.
+ */
+
 double calcularAnguloOrientacion(double alturaSolar, double declinacion, double latitud);
+
+/**
+  Función para calcular el azimuth solar.
+  Declinación solar en grados.
+  Latitud en grados.
+  Altura solar en grados.
+  double Azimuth solar en grados.
+ */
+
 double calcularAzimuth(double declinacion, double latitud, double alturaSolar);
+
+/**
+  Función para presentar los datos calculados.
+  fechaHora Estructura tm que contiene la fecha y hora actual.
+  Azimuth solar en grados.
+  anguloOrientacion Ángulo de elevación solar en grados.
+ */
+
 void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacion);
+
+/**
+   Funcion Principal del Programa int main();
+ */
 
 int main() {
     struct CoordenadasChar CoordenadasChar;
