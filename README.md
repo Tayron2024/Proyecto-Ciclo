@@ -209,7 +209,7 @@ Inicio del Programa
 
 
 ### **Codigo**
-https://github.com/Tayron2024/Prueba/blob/99ff764baa2cb27f678a62f825c885cea9467747/PruebaExamen.c
+https://github.com/Tayron2024/Prueba/blob/main/PruebaExamen.c
 
 Cálculos Utilizados
 
