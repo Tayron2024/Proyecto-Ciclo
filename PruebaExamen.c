@@ -1,9 +1,9 @@
 /**
  * @file SF.c
- * @author Mathías Medina - Tayron Morales - Victor Macas
+ * @author  Mathías Medina - Tayron Morales - Victor Mac
  * @brief 
  * @version 0.1
- * @date 2024-06-18
+ * @date 2024-06-20
  * 
  * @copyright Copyright (c) 2024
  * 
@@ -28,20 +28,20 @@
 /**CoordenadasChar
   Estructura para almacenar coordenadas en formato de cadena.*/
 
-struct CoordenadasChar{
-    //Longitud en grados (cadena)
+struct CoordenadasChar {
+    // Longitud en grados (cadena)
     char longitud[265];
-    //Latitud en grados (cadena)
+    // Latitud en grados (cadena)
     char latitud[265];
 };
 
 /**struct CoordenadasNum
  * Estructura para almacenar coordenadas en formato numérico.*/
 
-struct CoordenadasNum{
-    //Longitud en grados (numérico)
+struct CoordenadasNum {
+    // Longitud en grados (numérico)
     double longitud;
-    //Latitud en grados (numérico)
+    // Latitud en grados (numérico)
     double latitud;
 };
 
@@ -52,9 +52,9 @@ void obtenerHoraLocal(struct tm *fechaHora);
 
 /**Función para ingresar coordenadas de longitud y latitud.
   coordChar Puntero a la estructura CoordenadasChar para ingresar coordenadas como cadena.
-  coordNum Estructura CoordenadasNum para almacenar coordenadas como números.*/
+  coordNum Puntero a la estructura CoordenadasNum para almacenar coordenadas como números.*/
 
-void ingresarCoordenadas(struct CoordenadasChar *coord, struct CoordenadasNum coordNum);
+void ingresarCoordenadas(struct CoordenadasChar *coordChar, struct CoordenadasNum *coordNum);
 
 /**Función para validar que una cadena de caracteres sea un número válido.
   num Cadena que se desea validar.*/
@@ -84,7 +84,7 @@ double calcularHoraLocal(struct tm fechaHora);
   horaLocal Hora local en horas decimales.
   ecuacionTiempo Valor de la ecuación del tiempo en minutos.
   double Valor del tiempo solar verdadero en horas decimales.
-  */  
+  */
 double calcularTiempoSolarVerdadero(struct CoordenadasNum coord, double horaLocal, double ecuacionTiempo);
 
 /**
@@ -129,64 +129,54 @@ void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacio
  */
 
 int main() {
-    struct CoordenadasChar CoordenadasChar;
-    struct CoordenadasNum CoordenadasNum;
+    struct CoordenadasChar coordenadasChar;
+    struct CoordenadasNum coordenadasNum;
 
     struct tm fechaHora;
     
-        ingresarCoordenadas(&CoordenadasChar,CoordenadasNum);
-        obtenerHoraLocal(&fechaHora);
+    ingresarCoordenadas(&coordenadasChar, &coordenadasNum);
+    obtenerHoraLocal(&fechaHora);
 
+    double declinacion = calcularDeclinacion(fechaHora);
+    double ecuacionTiempo = calcularEcuacionDelTiempo(fechaHora);
+    double horaLocal = calcularHoraLocal(fechaHora);
+    double tiempoSolarVerdadero = calcularTiempoSolarVerdadero(coordenadasNum, horaLocal, ecuacionTiempo);
+    double alturaSolar = calcularAlturaSolar(tiempoSolarVerdadero);
+    double anguloOrientacion = calcularAnguloOrientacion(alturaSolar, declinacion, coordenadasNum.latitud);
+    double azimuth = calcularAzimuth(declinacion, coordenadasNum.latitud, alturaSolar);
+
+    PresentarDatos(fechaHora, azimuth, anguloOrientacion);
     
-        double declinacion = calcularDeclinacion(fechaHora);
-
-        double ecuacionTiempo = calcularEcuacionDelTiempo(fechaHora);
-
-        double horaLocal = calcularHoraLocal(fechaHora);
-
-        double tiempoSolarVerdadero = calcularTiempoSolarVerdadero(CoordenadasNum, horaLocal, ecuacionTiempo);
-
-        double alturaSolar = calcularAlturaSolar(tiempoSolarVerdadero);
-
-        double anguloOrientacion = calcularAnguloOrientacion(alturaSolar, declinacion, CoordenadasNum.latitud);
-
-        double azimuth = calcularAzimuth(declinacion, CoordenadasNum.latitud, alturaSolar);
-
-        PresentarDatos(fechaHora,azimuth, anguloOrientacion);
-        
     return 0;
 }
 
-void obtenerHoraLocal(struct tm *fechaHora){
-    struct tm fechaActual;
+void obtenerHoraLocal(struct tm *fechaHora) {
     time_t t = time(NULL);
     *fechaHora = *localtime(&t);
-    
-    fechaActual.tm_year = fechaHora->tm_year +1900;
-    fechaActual.tm_hour = fechaHora->tm_hour;
-    fechaActual.tm_min= fechaHora->tm_min;
-    fechaActual.tm_yday= fechaHora->tm_yday+1; 
 }
 
-void ingresarCoordenadas(struct CoordenadasChar *coordChar, struct CoordenadasNum coordNum){
+void ingresarCoordenadas(struct CoordenadasChar *coordChar, struct CoordenadasNum *coordNum) {
     printf("Ingrese la longitud dentro de -180 a 180 (en grados): ");
-    scanf("%s", &coordChar->longitud);
+    scanf("%s", coordChar->longitud);
     validar(coordChar->longitud);
-    coordNum.longitud = atof(coordChar->longitud);
-    if (coordNum.longitud > 180 || coordNum.longitud< - 180){
+    coordNum->longitud = atof(coordChar->longitud);
+    while (coordNum->longitud > 180 || coordNum->longitud < -180) {
         printf("Ingrese la longitud dentro de -180 a 180 (en grados): ");
-        scanf("%d", &coordNum.longitud);
+        scanf("%s", coordChar->longitud);
+        validar(coordChar->longitud);
+        coordNum->longitud = atof(coordChar->longitud);
     }
     
-    printf("Ingrese la latitud (en grados): ");
-    scanf("%s", &coordChar->latitud);
+    printf("Ingrese la latitud dentro de -90 a 90 (en grados): ");
+    scanf("%s", coordChar->latitud);
     validar(coordChar->latitud);
-    coordNum.latitud = atof(coordChar->latitud);
-    if (coordNum.latitud > 90 || coordNum.latitud < -90){
+    coordNum->latitud = atof(coordChar->latitud);
+    while (coordNum->latitud > 90 || coordNum->latitud < -90) {
         printf("Ingrese la latitud dentro de -90 a 90 (en grados): ");
-        scanf("%d", &coordNum.latitud);
+        scanf("%s", coordChar->latitud);
+        validar(coordChar->latitud);
+        coordNum->latitud = atof(coordChar->latitud);
     }
-
 }
 
 void validar(char num[]) {
@@ -200,13 +190,13 @@ void validar(char num[]) {
     }
 }
 
-double calcularDeclinacion(struct tm fechaHora){
-    int diaDelAnio = fechaHora.tm_yday;
+double calcularDeclinacion(struct tm fechaHora) {
+    int diaDelAnio = fechaHora.tm_yday + 1; // Añadir 1 ya que tm_yday inicia desde 0
     return D_ISol * cos(2 * PI * (diaDelAnio + 10) / 365.0);
 }
 
-double calcularEcuacionDelTiempo(struct tm fechaHora){
-    int diaDelAnio = fechaHora.tm_yday + 1;
+double calcularEcuacionDelTiempo(struct tm fechaHora) {
+    int diaDelAnio = fechaHora.tm_yday + 1; // Añadir 1 ya que tm_yday inicia desde 0
     double B = (2 * PI * (diaDelAnio - 81)) / 365.0;
     return 9.87 * sin(2 * B) - 7.53 * cos(B) - 1.5 * sin(B);
 }
@@ -228,26 +218,25 @@ double calcularAnguloOrientacion(double alturaSolar, double declinacion, double 
                             cos(declinacion * PI / 180.0) * cos(latitud * PI / 180.0) * cos(alturaSolar * PI / 180.0));
     return anguloRad * 180.0 / PI;
 }
+
 double calcularAzimuth(double declinacion, double latitud, double alturaSolar) {
     double azimuthRad = acos((sin(declinacion * PI / 180.0) - sin(alturaSolar * PI / 180.0) * sin(latitud * PI / 180.0)) /
                              (cos(alturaSolar * PI / 180.0) * cos(latitud * PI / 180.0)));
     return azimuthRad * 180.0 / PI;
 }
 
-void PresentarDatos(struct tm fechaHora ,double azimuth, double anguloOrientacion){
-    
-    for (fechaHora.tm_hour; fechaHora.tm_hour <= 24; fechaHora.tm_hour++){
-        for ( fechaHora.tm_min; fechaHora.tm_min < 60; fechaHora.tm_min++){
-            for (fechaHora.tm_sec; fechaHora.tm_sec < 60; fechaHora.tm_sec++){
+void PresentarDatos(struct tm fechaHora, double azimuth, double anguloOrientacion) {
+    for (int hora = fechaHora.tm_hour; hora < 24; hora++) {
+        for (int minuto = fechaHora.tm_min; minuto < 60; minuto++) {
+            for (int segundo = fechaHora.tm_sec; segundo < 60; segundo++) {
                 system("@cls||clear");
-                printf("Fecha de ejecucion: \t %d/%d/%d", fechaHora.tm_mday, fechaHora.tm_mon, fechaHora.tm_year);
-                printf("\n\rHora de ejecucion: %d: %d:%d\n", fechaHora.tm_hour, fechaHora.tm_min,fechaHora.tm_sec);
+                printf("Fecha de ejecucion: \t %d/%d/%d", fechaHora.tm_mday, fechaHora.tm_mon + 1, fechaHora.tm_year + 1900);
+                printf("\n\rHora de ejecucion: %02d: %02d:%02d\n", hora, minuto, segundo);
                 printf("\nOrientacion optima de los paneles solares:\n");
                 printf("Azimuth solar: %.2lf grados\n", azimuth);
                 printf("Angulo de elevacion solar: %.2lf grados\n\n", anguloOrientacion);
                 Sleep(1000);
-                 
-            }   
-        }   
+            }
+        }
     }
 }
