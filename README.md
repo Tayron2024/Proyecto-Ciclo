@@ -1,6 +1,3 @@
-Diapos: https://www.canva.com/design/DAFoeF7Q2z0/Hlvmx4vdAuXlucRIEMYkCw/edit?utm_content=DAFoeF7Q2z0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-
 # **UNIVERSIDAD NACIONAL DE LOJA**
 
 
